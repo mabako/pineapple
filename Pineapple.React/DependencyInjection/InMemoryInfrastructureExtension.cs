@@ -1,0 +1,22 @@
+﻿using Microsoft.Extensions.DependencyInjection;
+using Pineapple.Domain.Pages;
+using Pineapple.Domain.Spaces;
+using Pineapple.Infrastructure.DataAccess.InMemory;
+using Pineapple.Infrastructure.DataAccess.InMemory.Repositories;
+
+namespace Pineapple.React.DependencyInjection
+{
+    public static class InMemoryInfrastructureExtension
+    {
+        public static IServiceCollection AddInMemoryPersistence(this IServiceCollection services)
+        {
+            services.AddScoped<ISpaceFactory, InMemoryEntityFactory>();
+            services.AddScoped<IPageFactory, InMemoryEntityFactory>();
+
+            services.AddScoped<ISpaceRepository, SpaceRepository>();
+            services.AddScoped<IPageRepository, PageRepository>();
+
+            return services;
+        }
+    }
+}
