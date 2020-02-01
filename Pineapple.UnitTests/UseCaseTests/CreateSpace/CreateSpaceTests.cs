@@ -3,26 +3,31 @@ using System.Threading.Tasks;
 using Pineapple.Application.Boundaries.CreateSpace;
 using Pineapple.Domain.Spaces;
 using Pineapple.Domain.Spaces.ValueObjects;
-using Pineapple.UnitTests.Fixture;
+using Pineapple.Infrastructure.DataAccess.InMemory;
+using Pineapple.Infrastructure.DataAccess.InMemory.Repositories;
 using Pineapple.UnitTests.TestPresenters;
 using Xunit;
 
 namespace Pineapple.UnitTests.UseCaseTests.CreateSpace
 {
-    public sealed class CreateSpaceTests : IClassFixture<InMemoryFixtures>
+    public sealed class CreateSpaceTests
     {
-        private readonly InMemoryFixtures _fixture;
+        private readonly SpaceRepository _spaceRepository;
+        private readonly SpaceService _spaceService;
 
-        public CreateSpaceTests(InMemoryFixtures fixture)
+        public CreateSpaceTests()
         {
-            _fixture = fixture;
+            var context = new InMemoryContext();
+            var entityFactory = new InMemoryEntityFactory();
+            _spaceRepository = new SpaceRepository(context);
+            _spaceService = new SpaceService(entityFactory, _spaceRepository);
         }
 
         [Fact]
         public async Task New_Space_Should_Be_Creatable()
         {
             var createSpacePresenter = new CreateSpacePresenter();
-            var useCase = new Application.UseCases.CreateSpace(createSpacePresenter, _fixture.SpaceService);
+            var useCase = new Application.UseCases.CreateSpace(createSpacePresenter, _spaceService);
 
             var input = new CreateSpaceInput(new SpaceName("Demo"));
             await useCase.Execute(input);
@@ -38,11 +43,11 @@ namespace Pineapple.UnitTests.UseCaseTests.CreateSpace
         {
             var createSpacePresenter = new CreateSpacePresenter();
 
-            var useCase1 = new Application.UseCases.CreateSpace(createSpacePresenter, _fixture.SpaceService);
+            var useCase1 = new Application.UseCases.CreateSpace(createSpacePresenter, _spaceService);
             var input1 = new CreateSpaceInput(new SpaceName("Demo"));
             await useCase1.Execute(input1);
 
-            var useCase2 = new Application.UseCases.CreateSpace(createSpacePresenter, _fixture.SpaceService);
+            var useCase2 = new Application.UseCases.CreateSpace(createSpacePresenter, _spaceService);
             var input2 = new CreateSpaceInput(new SpaceName("Demo"));
             await useCase2.Execute(input2);
 
@@ -54,12 +59,14 @@ namespace Pineapple.UnitTests.UseCaseTests.CreateSpace
         public async Task Space_Is_Retrievable_After_Creation()
         {
             var createSpacePresenter = new CreateSpacePresenter();
-            var useCase = new Application.UseCases.CreateSpace(createSpacePresenter, _fixture.SpaceService);
+            var useCase = new Application.UseCases.CreateSpace(createSpacePresenter, _spaceService);
 
             var input = new CreateSpaceInput(new SpaceName("Demo"));
             await useCase.Execute(input);
 
-            ISpace createdSpace = await _fixture.SpaceRepository.Get(new SpaceName("Demo"));
+            Assert.Single(createSpacePresenter.CreatedSpaces);
+
+            ISpace createdSpace = await _spaceRepository.Get(new SpaceName("Demo"));
             Assert.Equal("Demo", createdSpace.Name.ToString());
         }
     }
