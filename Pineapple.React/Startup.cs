@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pineapple.React.DependencyInjection;
+using Pineapple.React.Filters;
 
 namespace Pineapple.React
 {
@@ -21,8 +22,11 @@ namespace Pineapple.React
 
         private void ConfigureCommonServices(IServiceCollection services)
         {
+            services.AddControllers().AddControllersAsServices();
+            services.AddMvcCore(options => options.Filters.Add(typeof(DomainExceptionFilter)));
             services.AddUseCases();
-            services.AddControllersWithViews();
+            services.AddPresenters();
+            services.AddMediator();
 
             // the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
@@ -63,13 +67,7 @@ namespace Pineapple.React
             app.UseSpaStaticFiles();
 
             app.UseRouting();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             app.UseSpa(spa =>
             {

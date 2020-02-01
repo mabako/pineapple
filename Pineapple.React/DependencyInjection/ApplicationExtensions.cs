@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Pineapple.Domain.Spaces;
 using Boundaries = Pineapple.Application.Boundaries;
-using UseCases = Pineapple.Application.UseCases;
+using AppUseCases = Pineapple.Application.UseCases;
 
 namespace Pineapple.React.DependencyInjection
 {
@@ -12,7 +12,7 @@ namespace Pineapple.React.DependencyInjection
     {
         public static IServiceCollection AddUseCases(this IServiceCollection services)
         {
-            services.AddScoped<Boundaries.CreateSpace.IUseCase, UseCases.CreateSpace>();
+            services.AddScoped<Boundaries.CreateSpace.IUseCase, AppUseCases.CreateSpace>();
 
             services.AddScoped<SpaceService, SpaceService>();
 
