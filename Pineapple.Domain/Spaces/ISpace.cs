@@ -1,4 +1,5 @@
-﻿using Pineapple.Domain.Spaces.ValueObjects;
+﻿using Pineapple.Domain.Pages;
+using Pineapple.Domain.Spaces.ValueObjects;
 
 namespace Pineapple.Domain.Spaces
 {
@@ -11,5 +12,10 @@ namespace Pineapple.Domain.Spaces
         /// Name of the space, uniquely identifying it.
         /// </summary>
         SpaceName Name { get; }
+
+        /// <summary>
+        /// All pages contained within this space.
+        /// </summary>
+        PageCollection Pages { get; }
     }
 }

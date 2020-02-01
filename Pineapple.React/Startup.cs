@@ -21,6 +21,7 @@ namespace Pineapple.React
 
         private void ConfigureCommonServices(IServiceCollection services)
         {
+            services.AddUseCases();
             services.AddControllersWithViews();
 
             // the React files will be served from this directory

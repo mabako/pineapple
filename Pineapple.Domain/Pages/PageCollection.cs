@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Pineapple.Domain.Pages.ValueObjects;
 
 namespace Pineapple.Domain.Pages
 {
@@ -8,15 +9,14 @@ namespace Pineapple.Domain.Pages
     /// </summary>
     public sealed class PageCollection
     {
-        private readonly IList<IPage> _pages = new List<IPage>();
+        private readonly IList<PageName> _pageNames = new List<PageName>();
 
         /// <summary>
         /// Adds a list of pages.
         /// </summary>
         /// <param name="pages">the list of pages</param>
         /// <typeparam name="T">a page implementation</typeparam>
-        public void Add<T>(IEnumerable<T> pages)
-            where T : IPage
+        public void Add(IEnumerable<PageName> pages)
         {
             foreach (var page in pages)
                 Add(page);
@@ -26,12 +26,12 @@ namespace Pineapple.Domain.Pages
         /// Adds a new page.
         /// </summary>
         /// <param name="page">page to add</param>
-        public void Add(IPage page) => _pages.Add(page);
+        public void Add(PageName page) => _pageNames.Add(page);
 
         /// <summary>
         /// Lists all pages.
         /// </summary>
         /// <returns>pages (read-only)</returns>
-        public IReadOnlyCollection<IPage> GetPages() => new ReadOnlyCollection<IPage>(_pages);
+        public IReadOnlyCollection<PageName> GetPageNames() => new ReadOnlyCollection<PageName>(_pageNames);
     }
 }

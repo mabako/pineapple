@@ -4,16 +4,16 @@ using Pineapple.Domain.Spaces.ValueObjects;
 namespace Pineapple.Domain.Spaces
 {
     /// <inheritdoc/>
-    public class Space : ISpace
+    public abstract class Space : ISpace
     {
         protected Space()
         {
             Pages = new PageCollection();
         }
-        
+
         /// <inheritdoc/>
         public SpaceName Name { get; protected set; }
-        
+
         /// <summary>
         /// All pages contained within this space.
         /// </summary>

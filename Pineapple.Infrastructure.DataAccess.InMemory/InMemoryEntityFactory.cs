@@ -3,6 +3,7 @@ using Pineapple.Domain.Pages;
 using Pineapple.Domain.Pages.ValueObjects;
 using Pineapple.Domain.Spaces;
 using Pineapple.Domain.Spaces.ValueObjects;
+using Pineapple.Infrastructure.DataAccess.InMemory.Entities;
 
 namespace Pineapple.Infrastructure.DataAccess.InMemory
 {
@@ -11,10 +12,7 @@ namespace Pineapple.Infrastructure.DataAccess.InMemory
     /// </summary>
     public sealed class InMemoryEntityFactory : ISpaceFactory, IPageFactory
     {
-        public ISpace NewSpace(SpaceName name)
-        {
-            throw new NotImplementedException();
-        }
+        public ISpace NewSpace(SpaceName name) => new Entities.Space(name);
 
         public IPage NewPage(ISpace space, PageName pageName)
         {
