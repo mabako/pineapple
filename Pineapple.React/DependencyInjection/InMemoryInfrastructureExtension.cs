@@ -13,6 +13,8 @@ namespace Pineapple.React.DependencyInjection
             services.AddScoped<ISpaceFactory, InMemoryEntityFactory>();
             services.AddScoped<IPageFactory, InMemoryEntityFactory>();
 
+            services.AddSingleton<InMemoryContext, InMemoryContext>();
+
             services.AddScoped<ISpaceRepository, SpaceRepository>();
             services.AddScoped<IPageRepository, PageRepository>();
 

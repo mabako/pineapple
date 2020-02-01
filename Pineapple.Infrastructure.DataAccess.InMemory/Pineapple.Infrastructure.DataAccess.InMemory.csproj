@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Pineapple.Application\Pineapple.Application.csproj" />
       <ProjectReference Include="..\Pineapple.Domain\Pineapple.Domain.csproj" />
     </ItemGroup>
 
