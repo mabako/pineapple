@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Pineapple.Application.Boundaries.CreateSpace;
 using Boundaries = Pineapple.Application.Boundaries;
 
-namespace Pineapple.React.DependencyInjection
+namespace Pineapple.Client.Web.React.DependencyInjection
 {
     public static class FluentMediatorExtensions
     {

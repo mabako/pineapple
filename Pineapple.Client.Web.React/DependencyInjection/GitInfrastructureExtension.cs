@@ -4,7 +4,7 @@ using Pineapple.Domain.Spaces;
 using Pineapple.Infrastructure.DataAccess.Git;
 using Pineapple.Infrastructure.DataAccess.Git.Repositories;
 
-namespace Pineapple.React.DependencyInjection
+namespace Pineapple.Client.Web.React.DependencyInjection
 {
     public static class GitInfrastructureExtension
     {

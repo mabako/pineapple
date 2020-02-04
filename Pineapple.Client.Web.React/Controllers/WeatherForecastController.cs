@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Pineapple.React.Controllers
+namespace Pineapple.Client.Web.React.Controllers
 {
     [ApiController]
     [Route("[controller]")]

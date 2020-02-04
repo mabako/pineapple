@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Pineapple.React.UseCases.V1.CreateSpace;
+using Pineapple.Client.Web.React.UseCases.V1.CreateSpace;
 using Boundaries = Pineapple.Application.Boundaries;
 
-namespace Pineapple.React.DependencyInjection
+namespace Pineapple.Client.Web.React.DependencyInjection
 {
     public static class UserInterfaceExtensions
     {

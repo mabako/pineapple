@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.React", "Pineapple.React\Pineapple.React.csproj", "{7415254B-8957-466C-807F-549B8AADDE4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.Client.Web.React", "Pineapple.Client.Web.React\Pineapple.Client.Web.React.csproj", "{7415254B-8957-466C-807F-549B8AADDE4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E0382AF-09BA-4591-8732-2C39D5FCD3A2}"
 ProjectSection(SolutionItems) = preProject

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Pineapple.Application.Boundaries.CreateSpace;
 using Pineapple.Domain.Spaces.ValueObjects;
 
-namespace Pineapple.React.UseCases.V1.CreateSpace
+namespace Pineapple.Client.Web.React.UseCases.V1.CreateSpace
 {
     /// <summary>
     /// Space controller.

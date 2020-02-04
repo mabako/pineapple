@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Pineapple.React.DependencyInjection;
-using Pineapple.React.Filters;
+using Pineapple.Client.Web.React.DependencyInjection;
+using Pineapple.Client.Web.React.Filters;
 
-namespace Pineapple.React
+namespace Pineapple.Client.Web.React
 {
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public sealed class Startup

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pineapple.Application.Boundaries.CreateSpace;
 
-namespace Pineapple.React.UseCases.V1.CreateSpace
+namespace Pineapple.Client.Web.React.UseCases.V1.CreateSpace
 {
     /// <summary>
     /// Maps space creation output to HTTP values.

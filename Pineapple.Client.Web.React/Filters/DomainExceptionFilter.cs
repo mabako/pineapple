@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Pineapple.Domain;
 
-namespace Pineapple.React.Filters
+namespace Pineapple.Client.Web.React.Filters
 {
     /// <summary>
     /// Filters all exceptions to automatically convert failures into HTTP 400 responses, such as when a value object

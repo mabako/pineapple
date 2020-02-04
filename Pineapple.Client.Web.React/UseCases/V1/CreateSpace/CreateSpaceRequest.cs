@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Pineapple.React.UseCases.V1.CreateSpace
+namespace Pineapple.Client.Web.React.UseCases.V1.CreateSpace
 {
     /// <summary>
     /// Request to create a space.

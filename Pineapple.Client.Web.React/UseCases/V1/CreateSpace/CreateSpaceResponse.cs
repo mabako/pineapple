@@ -1,4 +1,4 @@
-﻿namespace Pineapple.React.UseCases.V1.CreateSpace
+﻿namespace Pineapple.Client.Web.React.UseCases.V1.CreateSpace
 {
     /// <summary>
     /// Response to the successful creation of a space.

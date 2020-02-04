@@ -1,6 +1,6 @@
 using System;
 
-namespace Pineapple.React
+namespace Pineapple.Client.Web.React
 {
     public class WeatherForecast
     {
