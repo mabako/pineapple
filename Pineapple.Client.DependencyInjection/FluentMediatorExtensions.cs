@@ -1,10 +1,12 @@
 ﻿using FluentMediator;
 using Microsoft.Extensions.DependencyInjection;
-using Pineapple.Application.Boundaries.CreateSpace;
 using Boundaries = Pineapple.Application.Boundaries;
 
-namespace Pineapple.Client.Web.React.DependencyInjection
+namespace Pineapple.Client.DependencyInjection
 {
+    /// <summary>
+    /// Adds a mediator for the given messages.
+    /// </summary>
     public static class FluentMediatorExtensions
     {
         public static IServiceCollection AddMediator(this IServiceCollection services)
@@ -12,7 +14,7 @@ namespace Pineapple.Client.Web.React.DependencyInjection
             services.AddFluentMediator(
                 builder =>
                 {
-                    builder.AddUseCase<Boundaries.CreateSpace.IUseCase, CreateSpaceInput>();
+                    builder.AddUseCase<Boundaries.CreateSpace.IUseCase, Boundaries.CreateSpace.CreateSpaceInput>();
                 }
             );
 

@@ -4,7 +4,7 @@ using Pineapple.Domain.Spaces;
 using Pineapple.Infrastructure.DataAccess.InMemory;
 using Pineapple.Infrastructure.DataAccess.InMemory.Repositories;
 
-namespace Pineapple.Client.Web.React.DependencyInjection
+namespace Pineapple.Client.DependencyInjection
 {
     public static class InMemoryInfrastructureExtension
     {

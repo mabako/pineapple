@@ -3,7 +3,7 @@ using Pineapple.Domain.Spaces;
 using Boundaries = Pineapple.Application.Boundaries;
 using AppUseCases = Pineapple.Application.UseCases;
 
-namespace Pineapple.Client.Web.React.DependencyInjection
+namespace Pineapple.Client.DependencyInjection
 {
     /// <summary>
     /// Adds Use Cases.

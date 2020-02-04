@@ -5,47 +5,29 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Pineapple.Client.DependencyInjection;
 using Pineapple.Client.Web.React.DependencyInjection;
 using Pineapple.Client.Web.React.Filters;
 
 namespace Pineapple.Client.Web.React
 {
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
-    public sealed class Startup
+    public sealed class Startup : CommonStartup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration) : base(configuration)
         {
-            Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        private void ConfigureCommonServices(IServiceCollection services)
+        protected override void ConfigureCommonServices(IServiceCollection services)
         {
+            base.ConfigureCommonServices(services);
+
             services.AddControllers().AddControllersAsServices();
             services.AddMvcCore(options => options.Filters.Add(typeof(DomainExceptionFilter)));
-            services.AddUseCases();
             services.AddPresenters();
-            services.AddMediator();
 
             // the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
-        }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureProductionServices(IServiceCollection services)
-        {
-            services.AddInMemoryPersistence();
-
-            ConfigureCommonServices(services);
-        }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddInMemoryPersistence();
-
-            ConfigureCommonServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

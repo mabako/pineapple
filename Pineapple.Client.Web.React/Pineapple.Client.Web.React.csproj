@@ -10,8 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FluentMediator" Version="0.4.6" />
-        <PackageReference Include="FluentMediator.Microsoft.Extensions.DependencyInjection" Version="0.4.6" />
         <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
     </ItemGroup>
 
@@ -24,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Pineapple.Client.DependencyInjection\Pineapple.Client.DependencyInjection.csproj" />
       <ProjectReference Include="..\Pineapple.Domain\Pineapple.Domain.csproj" />
       <ProjectReference Include="..\Pineapple.Infrastructure.DataAccess.Git\Pineapple.Infrastructure.DataAccess.Git.csproj" />
       <ProjectReference Include="..\Pineapple.Infrastructure.DataAccess.InMemory\Pineapple.Infrastructure.DataAccess.InMemory.csproj" />

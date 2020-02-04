@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.UnitTests", "Pine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.Application", "Pineapple.Application\Pineapple.Application.csproj", "{E49D5EBF-CD7E-4C8D-8E18-6975BA9EFE82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.Client.ConsoleApp", "Pineapple.Client.ConsoleApp\Pineapple.Client.ConsoleApp.csproj", "{A6EB2875-2A97-411E-A8DF-1DD237C4D004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.Client.DependencyInjection", "Pineapple.Client.DependencyInjection\Pineapple.Client.DependencyInjection.csproj", "{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,14 @@ Global
 		{E49D5EBF-CD7E-4C8D-8E18-6975BA9EFE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E49D5EBF-CD7E-4C8D-8E18-6975BA9EFE82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E49D5EBF-CD7E-4C8D-8E18-6975BA9EFE82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6EB2875-2A97-411E-A8DF-1DD237C4D004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6EB2875-2A97-411E-A8DF-1DD237C4D004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6EB2875-2A97-411E-A8DF-1DD237C4D004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6EB2875-2A97-411E-A8DF-1DD237C4D004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{603B9462-86D7-4C95-8519-FB30781D6044} = {F841A5AB-C1C7-44C7-A228-93D30659ED25}
@@ -61,5 +73,7 @@ Global
 		{FE48163A-3FAB-4166-BB0F-0CD8FCC0CD25} = {F841A5AB-C1C7-44C7-A228-93D30659ED25}
 		{4143EC9C-4A9F-4622-A3C7-FB8221A7F85F} = {26DD993D-A52D-48EB-826F-511445D8403A}
 		{E49D5EBF-CD7E-4C8D-8E18-6975BA9EFE82} = {F841A5AB-C1C7-44C7-A228-93D30659ED25}
+		{A6EB2875-2A97-411E-A8DF-1DD237C4D004} = {F841A5AB-C1C7-44C7-A228-93D30659ED25}
+		{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761} = {F841A5AB-C1C7-44C7-A228-93D30659ED25}
 	EndGlobalSection
 EndGlobal
