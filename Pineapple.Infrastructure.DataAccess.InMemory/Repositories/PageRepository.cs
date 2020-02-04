@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Pineapple.Domain.Pages;
 using Pineapple.Domain.Pages.ValueObjects;
 using Pineapple.Domain.Spaces;
-using Pineapple.Domain.Spaces.ValueObjects;
 
 namespace Pineapple.Infrastructure.DataAccess.InMemory.Repositories
 {

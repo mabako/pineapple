@@ -19,14 +19,12 @@ namespace Pineapple.Client.Web.React.DependencyInjection
             return services;
         }
 
-        private static IPipelineProviderBuilder AddUseCase<TUseCase, TInput>(this IPipelineProviderBuilder builder)
+        private static void AddUseCase<TUseCase, TInput>(this IPipelineProviderBuilder builder)
             where TInput : Boundaries.IUseCaseInput
             where TUseCase : Boundaries.IUseCase<TInput>
         {
             builder.On<TInput>().PipelineAsync()
                 .Call<TUseCase>((handler, request) => handler.Execute(request));
-
-            return builder;
         }
     }
 }

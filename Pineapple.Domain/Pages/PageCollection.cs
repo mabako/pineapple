@@ -15,7 +15,6 @@ namespace Pineapple.Domain.Pages
         /// Adds a list of pages.
         /// </summary>
         /// <param name="pages">the list of pages</param>
-        /// <typeparam name="T">a page implementation</typeparam>
         public void Add(IEnumerable<PageName> pages)
         {
             foreach (var page in pages)
