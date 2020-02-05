@@ -7,8 +7,10 @@ namespace Pineapple.UnitTests.TestPresenters
     {
         public List<CreateSpaceOutput> CreatedSpaces { get; } = new List<CreateSpaceOutput>();
         public List<string> AlreadyExisting { get; } = new List<string>();
+        public List<string> UnableToCreate { get; } = new List<string>();
 
         public void Standard(CreateSpaceOutput output) => CreatedSpaces.Add(output);
         public void SpaceAlreadyExists(string message) => AlreadyExisting.Add(message);
+        public void UnableToCreateSpace(string message) => UnableToCreate.Add(message);
     }
 }

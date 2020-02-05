@@ -35,6 +35,10 @@ namespace Pineapple.Application.UseCases
             {
                 _outputPort.SpaceAlreadyExists(e.Message);
             }
+            catch (UnableToCreateSpaceException e)
+            {
+                _outputPort.UnableToCreateSpace(e.Message);
+            }
         }
     }
 }

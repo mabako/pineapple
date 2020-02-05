@@ -36,6 +36,7 @@ namespace Pineapple.UnitTests.UseCaseTests.CreateSpace
             Assert.NotNull(createdSpace);
             Assert.Equal(input.SpaceName, createdSpace.Name);
             Assert.Empty(createSpacePresenter.AlreadyExisting);
+            Assert.Empty(createSpacePresenter.UnableToCreate);
         }
 
         [Fact]
@@ -53,6 +54,7 @@ namespace Pineapple.UnitTests.UseCaseTests.CreateSpace
 
             Assert.Single(createSpacePresenter.CreatedSpaces);
             Assert.Single(createSpacePresenter.AlreadyExisting);
+            Assert.Empty(createSpacePresenter.UnableToCreate);
         }
 
         [Fact]

@@ -7,5 +7,11 @@
         /// </summary>
         /// <param name="message">custom message</param>
         void SpaceAlreadyExists(string message);
+
+        /// <summary>
+        /// The space you tried to create cannot be created.
+        /// </summary>
+        /// <param name="message">custom message</param>
+        void UnableToCreateSpace(string message);
     }
 }

@@ -11,5 +11,8 @@ namespace Pineapple.Client.ConsoleApp.UseCases.Spaces
 
         /// <inheritdoc />
         public void SpaceAlreadyExists(string message) => Console.WriteLine($"ERROR: {message}");
+
+        /// <inheritdoc />
+        public void UnableToCreateSpace(string message) => Console.WriteLine($"ERROR: {message}");
     }
 }

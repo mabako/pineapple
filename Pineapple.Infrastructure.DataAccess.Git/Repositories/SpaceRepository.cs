@@ -60,10 +60,23 @@ namespace Pineapple.Infrastructure.DataAccess.Git.Repositories
             if (spaceDirectory.Exists)
                 throw new SpaceAlreadyExistsException($"The space '{space.Name}' already exists.");
 
-            string repositoryPath = Repository.Init(spaceDirectory.FullName, true);
-            space.BaseDirectory = new DirectoryInfo(repositoryPath);
+            try
+            {
+                string repositoryPath = Repository.Init(spaceDirectory.FullName, isBare: true);
+                space.BaseDirectory = new DirectoryInfo(repositoryPath);
 
-            return Task.CompletedTask;
+                return Task.CompletedTask;
+            }
+            catch (LibGit2SharpException e)
+            {
+                // Could contain a few exceptions: Path too long, invalid characters (unlikely with the constraints on SpaceName), etc.
+                //
+                // Certain directory (or file) names simply are not valid on certain operating systems, and they're not
+                // inherently "bad" names for a repository on another platform, thus disallowing them on all platforms is dubious.
+                //
+                // In particular, Windows has a list of backwards-compatibility names such as "aux" that the win API cannot create/open.
+                throw new UnableToCreateSpaceException($"Could not create the git repository for space '{space.Name}'.", e);
+            }
         }
     }
 }
