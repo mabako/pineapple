@@ -1,4 +1,4 @@
-# pineapple
+# pineapple<sup>🍍</sup>
 ## experimental wiki system, backed by a git-based persistence adapter
 
 ## Motivation
