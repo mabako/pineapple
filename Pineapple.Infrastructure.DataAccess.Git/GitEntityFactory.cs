@@ -8,10 +8,7 @@ namespace Pineapple.Infrastructure.DataAccess.Git
 {
     public sealed class GitEntityFactory : ISpaceFactory, IPageFactory
     {
-        public ISpace NewSpace(SpaceName name)
-        {
-            throw new NotImplementedException();
-        }
+        public ISpace NewSpace(SpaceName name) => new Entities.Space(name);
 
         public IPage NewPage(ISpace space, PageName pageName)
         {

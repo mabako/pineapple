@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Pineapple.Client.DependencyInjection;
 using Pineapple.Client.Web.React.DependencyInjection;
 using Pineapple.Client.Web.React.Filters;
+using Pineapple.Infrastructure.DataAccess.Git.Configuration;
 
 namespace Pineapple.Client.Web.React
 {
@@ -20,6 +21,8 @@ namespace Pineapple.Client.Web.React
 
         protected override void ConfigureCommonServices(IServiceCollection services)
         {
+            services.Configure<GitConfiguration>(Configuration.GetSection("Git"));
+
             base.ConfigureCommonServices(services);
 
             services.AddControllers().AddControllersAsServices();

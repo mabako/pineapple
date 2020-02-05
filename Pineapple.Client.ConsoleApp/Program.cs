@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Pineapple.Domain;
+using Pineapple.Infrastructure.DataAccess.Git.Configuration;
 
 namespace Pineapple.Client.ConsoleApp
 {
@@ -34,6 +35,7 @@ namespace Pineapple.Client.ConsoleApp
             return new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddEnvironmentVariables()
+                .AddJsonFile("appsettings.json", optional: true)
                 .Build();
         }
 
@@ -42,6 +44,8 @@ namespace Pineapple.Client.ConsoleApp
             Startup startup = new Startup(configuration);
 
             var services = new ServiceCollection();
+
+            services.Configure<GitConfiguration>(configuration.GetSection("Git"));
 
             if (env.IsProduction())
                 startup.ConfigureProductionServices(services);
