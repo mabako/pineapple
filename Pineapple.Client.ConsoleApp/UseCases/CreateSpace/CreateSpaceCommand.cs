@@ -3,20 +3,20 @@ using FluentMediator;
 using Pineapple.Application.Boundaries.CreateSpace;
 using Pineapple.Domain.Spaces.ValueObjects;
 
-namespace Pineapple.Client.ConsoleApp.UseCases.Spaces
+namespace Pineapple.Client.ConsoleApp.UseCases.CreateSpace
 {
     /// <summary>
     /// Spaces commands to create a space.
     /// </summary>
-    public sealed class SpacesCommands
+    public sealed class CreateSpaceCommand
     {
         private readonly IMediator _mediator;
 
         /// <summary>
-        /// Creates a new <see cref="SpacesCommands"/>.
+        /// Creates a new <see cref="CreateSpaceCommand"/>.
         /// </summary>
         /// <param name="mediator">mediator instance</param>
-        public SpacesCommands(IMediator mediator)
+        public CreateSpaceCommand(IMediator mediator)
         {
             _mediator = mediator;
         }

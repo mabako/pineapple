@@ -1,7 +1,7 @@
 ﻿using System;
 using Pineapple.Application.Boundaries.CreateSpace;
 
-namespace Pineapple.Client.ConsoleApp.UseCases.Spaces
+namespace Pineapple.Client.ConsoleApp.UseCases.CreateSpace
 {
     /// <inheritdoc cref="IOutputPort"/>
     public sealed class CreateSpacePresenter : IOutputPort

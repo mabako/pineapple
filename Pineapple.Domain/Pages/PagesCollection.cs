@@ -7,7 +7,7 @@ namespace Pineapple.Domain.Pages
     /// <summary>
     /// Pages (first-class collection).
     /// </summary>
-    public sealed class PageCollection
+    public sealed class PagesCollection
     {
         private readonly IList<PageName> _pageNames = new List<PageName>();
 

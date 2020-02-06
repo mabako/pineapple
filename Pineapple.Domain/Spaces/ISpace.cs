@@ -16,6 +16,6 @@ namespace Pineapple.Domain.Spaces
         /// <summary>
         /// All pages contained within this space.
         /// </summary>
-        PageCollection Pages { get; }
+        PagesCollection Pages { get; }
     }
 }

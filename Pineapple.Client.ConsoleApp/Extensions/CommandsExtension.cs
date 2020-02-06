@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Pineapple.Client.ConsoleApp.UseCases.Spaces;
+using Pineapple.Client.ConsoleApp.UseCases.CreateSpace;
+using Pineapple.Client.ConsoleApp.UseCases.ListSpaces;
 
 namespace Pineapple.Client.ConsoleApp.Extensions
 {
@@ -15,7 +16,8 @@ namespace Pineapple.Client.ConsoleApp.Extensions
         /// <returns>the same services collection</returns>
         public static IServiceCollection AddCommands(this IServiceCollection services)
         {
-            services.AddScoped<SpacesCommands>();
+            services.AddScoped<CreateSpaceCommand>();
+            services.AddScoped<ListSpacesCommand>();
 
             return services;
         }

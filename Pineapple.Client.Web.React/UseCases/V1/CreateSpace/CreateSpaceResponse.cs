@@ -3,7 +3,7 @@
     /// <summary>
     /// Response to the successful creation of a space.
     /// </summary>
-    public class CreateSpaceResponse
+    public sealed class CreateSpaceResponse
     {
         public CreateSpaceResponse(string spaceName)
         {

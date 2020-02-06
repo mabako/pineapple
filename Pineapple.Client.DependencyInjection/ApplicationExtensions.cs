@@ -13,6 +13,7 @@ namespace Pineapple.Client.DependencyInjection
         public static IServiceCollection AddUseCases(this IServiceCollection services)
         {
             services.AddScoped<Boundaries.CreateSpace.IUseCase, AppUseCases.CreateSpace>();
+            services.AddScoped<Boundaries.ListSpaces.IUseCase, AppUseCases.ListSpaces>();
 
             services.AddScoped<SpaceService, SpaceService>();
 

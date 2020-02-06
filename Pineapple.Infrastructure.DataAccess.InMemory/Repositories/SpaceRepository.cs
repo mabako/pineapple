@@ -28,6 +28,14 @@ namespace Pineapple.Infrastructure.DataAccess.InMemory.Repositories
         }
 
         /// <inheritdoc />
+        public Task<SpacesCollection> All()
+        {
+            var spaces = new SpacesCollection();
+            spaces.Add(_context.Spaces.Select(x => x.Name));
+            return Task.FromResult(spaces);
+        }
+
+        /// <inheritdoc />
         public async Task Add(ISpace space)
         {
             if (_context.Spaces.Any(x => x.Name.Equals(space.Name)))

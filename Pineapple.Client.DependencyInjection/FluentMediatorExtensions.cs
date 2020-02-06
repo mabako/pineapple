@@ -15,6 +15,7 @@ namespace Pineapple.Client.DependencyInjection
                 builder =>
                 {
                     builder.AddUseCase<Boundaries.CreateSpace.IUseCase, Boundaries.CreateSpace.CreateSpaceInput>();
+                    builder.AddUseCase<Boundaries.ListSpaces.IUseCase, Boundaries.ListSpaces.ListSpacesInput>();
                 }
             );
 

@@ -12,12 +12,12 @@ namespace Pineapple.Client.Web.React.UseCases.V1.CreateSpace
     /// Space controller.
     /// </summary>
     [Route("$/api/[controller]")]
-    public sealed class SpacesController : ControllerBase
+    public sealed class CreateSpaceController : ControllerBase
     {
         private readonly IMediator _mediator;
         private readonly CreateSpacePresenter _presenter;
 
-        public SpacesController(IMediator mediator, CreateSpacePresenter presenter)
+        public CreateSpaceController(IMediator mediator, CreateSpacePresenter presenter)
         {
             _mediator = mediator;
             _presenter = presenter;

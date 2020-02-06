@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Pineapple.Client.ConsoleApp.UseCases.Spaces;
+using Pineapple.Client.ConsoleApp.UseCases.CreateSpace;
+using Pineapple.Client.ConsoleApp.UseCases.ListSpaces;
 using Boundaries = Pineapple.Application.Boundaries;
 
 namespace Pineapple.Client.ConsoleApp.Extensions
@@ -17,6 +18,7 @@ namespace Pineapple.Client.ConsoleApp.Extensions
         public static IServiceCollection AddPresenters(this IServiceCollection services)
         {
             services.AddUseCase<Boundaries.CreateSpace.IOutputPort, CreateSpacePresenter>();
+            services.AddUseCase<Boundaries.ListSpaces.IOutputPort, ListSpacesPresenter>();
 
             return services;
         }

@@ -16,6 +16,12 @@ namespace Pineapple.Domain.Spaces
         Task<ISpace> Get(SpaceName name);
 
         /// <summary>
+        /// Gets the names of all spaces.
+        /// </summary>
+        /// <returns>space names</returns>
+        Task<SpacesCollection> All();
+
+        /// <summary>
         /// Creates a new empty space.
         /// </summary>
         /// <param name="space">space to create</param>

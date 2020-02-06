@@ -8,7 +8,7 @@ namespace Pineapple.Domain.Spaces
     {
         protected Space()
         {
-            Pages = new PageCollection();
+            Pages = new PagesCollection();
         }
 
         /// <inheritdoc/>
@@ -17,6 +17,6 @@ namespace Pineapple.Domain.Spaces
         /// <summary>
         /// All pages contained within this space.
         /// </summary>
-        public PageCollection Pages { get; protected set; }
+        public PagesCollection Pages { get; protected set; }
     }
 }

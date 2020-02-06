@@ -41,6 +41,29 @@ namespace Pineapple.Infrastructure.DataAccess.Git.Repositories
         }
 
         /// <summary>
+        /// Looks up all existing directories that we can possibly use as spaces, contained within our root path.
+        /// </summary>
+        /// <returns>all (possible) existing spaces</returns>
+        public Task<SpacesCollection> All()
+        {
+            SpacesCollection spaces = new SpacesCollection();
+            foreach (DirectoryInfo directory in _physicalRootDirectory.GetDirectories())
+            {
+                try
+                {
+                    var spaceName = new SpaceName(directory.Name);
+                    spaces.Add(spaceName);
+                }
+                catch (InvalidSpaceNameException)
+                {
+                    // ignore this folder entirely
+                }
+            }
+
+            return Task.FromResult(spaces);
+        }
+
+        /// <summary>
         /// Creates a new space.
         /// </summary>
         /// <param name="rawSpace">the space to create</param>

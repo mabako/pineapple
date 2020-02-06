@@ -6,7 +6,7 @@ namespace Pineapple.Domain.Spaces
     /// <summary>
     /// Connecting you to Spaces.
     /// </summary>
-    public class SpaceService
+    public sealed class SpaceService
     {
         private readonly ISpaceFactory _spaceFactory;
         private readonly ISpaceRepository _spaceRepository;
@@ -32,6 +32,15 @@ namespace Pineapple.Domain.Spaces
             var space = _spaceFactory.NewSpace(name);
             await _spaceRepository.Add(space);
             return space;
+        }
+
+        /// <summary>
+        /// Lists all existing spaces.
+        /// </summary>
+        /// <returns>all spaces</returns>
+        public async Task<SpacesCollection> ListSpaces()
+        {
+            return await _spaceRepository.All();
         }
     }
 }

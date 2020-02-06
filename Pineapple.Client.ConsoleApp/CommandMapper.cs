@@ -1,7 +1,8 @@
 ﻿using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.Threading.Tasks;
-using Pineapple.Client.ConsoleApp.UseCases.Spaces;
+using Pineapple.Client.ConsoleApp.UseCases.CreateSpace;
+using Pineapple.Client.ConsoleApp.UseCases.ListSpaces;
 using Pineapple.Domain.Spaces.ValueObjects;
 
 namespace Pineapple.Client.ConsoleApp
@@ -13,7 +14,7 @@ namespace Pineapple.Client.ConsoleApp
     {
         private readonly RootCommand _rootCommand;
 
-        public CommandMapper(SpacesCommands spacesCommands)
+        public CommandMapper(CreateSpaceCommand createSpaceCommand, ListSpacesCommand listSpacesCommand)
         {
             #region Spaces Commands
 
@@ -21,13 +22,17 @@ namespace Pineapple.Client.ConsoleApp
             {
                 new Argument<SpaceName>("name")
             };
-            createSpace.Handler = CommandHandler.Create<SpaceName>(spacesCommands.CreateSpace);
+            createSpace.Handler = CommandHandler.Create<SpaceName>(createSpaceCommand.CreateSpace);
+
+            Command listSpaces = new Command("list-spaces");
+            listSpaces.Handler = CommandHandler.Create(listSpacesCommand.ListSpaces);
 
             #endregion
 
             _rootCommand = new RootCommand()
             {
                 createSpace,
+                listSpaces,
             };
         }
 
