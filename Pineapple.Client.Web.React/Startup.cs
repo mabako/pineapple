@@ -1,10 +1,14 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Pineapple.Client.DependencyInjection;
 using Pineapple.Client.Web.React.DependencyInjection;
 using Pineapple.Client.Web.React.Filters;
@@ -29,6 +33,17 @@ namespace Pineapple.Client.Web.React
             services.AddMvcCore(options => options.Filters.Add(typeof(DomainExceptionFilter)));
             services.AddPresenters();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "pineapple api", Version = "v1"});
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+
+                c.EnableAnnotations();
+            });
+
             // the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
         }
@@ -48,6 +63,15 @@ namespace Pineapple.Client.Web.React
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger(c => { c.RouteTemplate = "$/swagger/{documentName}/swagger.json"; });
+            app.UseSwaggerUI(c =>
+            {
+                c.DocumentTitle = "pineapple api";
+                c.RoutePrefix = "$/swagger";
+                c.SwaggerEndpoint("/$/swagger/v1/swagger.json", "pineapple api v1");
+            });
+
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 

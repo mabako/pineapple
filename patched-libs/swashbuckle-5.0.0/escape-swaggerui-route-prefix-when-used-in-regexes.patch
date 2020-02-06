@@ -1,0 +1,31 @@
+From b57c9c8d9d509e57ada21248c3a27cbca4e9fe67 Mon Sep 17 00:00:00 2001
+From: Marcus Bauer <marcus@bauer.wf>
+Date: Thu, 6 Feb 2020 22:42:30 +0100
+Subject: [PATCH] escape swaggerui route prefix when used in regexes
+
+---
+ src/Swashbuckle.AspNetCore.SwaggerUI/SwaggerUIMiddleware.cs | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/Swashbuckle.AspNetCore.SwaggerUI/SwaggerUIMiddleware.cs b/src/Swashbuckle.AspNetCore.SwaggerUI/SwaggerUIMiddleware.cs
+index 7563c926..bb93f081 100644
+--- a/src/Swashbuckle.AspNetCore.SwaggerUI/SwaggerUIMiddleware.cs
++++ b/src/Swashbuckle.AspNetCore.SwaggerUI/SwaggerUIMiddleware.cs
+@@ -50,7 +50,7 @@ public async Task Invoke(HttpContext httpContext)
+             var path = httpContext.Request.Path.Value;
+ 
+             // If the RoutePrefix is requested (with or without trailing slash), redirect to index URL
+-            if (httpMethod == "GET" && Regex.IsMatch(path, $"^/{_options.RoutePrefix}/?$"))
++            if (httpMethod == "GET" && Regex.IsMatch(path, $"^/{Regex.Escape(_options.RoutePrefix)}/?$"))
+             {
+                 // Use relative redirect to support proxy environments
+                 var relativeRedirectPath = path.EndsWith("/")
+@@ -61,7 +61,7 @@ public async Task Invoke(HttpContext httpContext)
+                 return;
+             }
+ 
+-            if (httpMethod == "GET" && Regex.IsMatch(path, $"^/{_options.RoutePrefix}/?index.html$"))
++            if (httpMethod == "GET" && Regex.IsMatch(path, $"^/{Regex.Escape(_options.RoutePrefix)}/?index.html$"))
+             {
+                 await RespondWithIndexHtml(httpContext.Response);
+                 return;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Pineapple.Client.Web.React.UseCases.V1.ListSpaces
 {
@@ -12,6 +13,7 @@ namespace Pineapple.Client.Web.React.UseCases.V1.ListSpaces
             Spaces = spaces;
         }
 
+        [Required]
         public IReadOnlyList<string> Spaces { get; }
     }
 }

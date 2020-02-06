@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Swashbuckle.AspNetCore.Annotations</name>
+    </assembly>
+    <members>
+        <member name="T:Swashbuckle.AspNetCore.Annotations.SwaggerOperationAttribute">
+            <summary>
+            Enriches Operation metadata for a given action method
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.Annotations.SwaggerOperationAttribute.Summary">
+            <summary>
+            A short summary of what the operation does. For maximum readability in the swagger-ui,
+            this field SHOULD be less than 120 characters.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.Annotations.SwaggerOperationAttribute.Description">
+            <summary>
+            A verbose explanation of the operation behavior. GFM syntax can be used for rich text representation.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.Annotations.SwaggerOperationAttribute.OperationId">
+            <summary>
+            Unique string used to identify the operation. The id MUST be unique among all operations described
+            in the API. Tools and libraries MAY use the operationId to uniquely identify an operation, therefore,
+            it is recommended to follow common programming naming conventions.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.Annotations.SwaggerOperationAttribute.Tags">
+            <summary>
+            A list of tags for API documentation control. Tags can be used for logical grouping of operations
+            by resources or any other qualifier.
+            </summary>
+        </member>
+        <member name="T:Swashbuckle.AspNetCore.Annotations.SwaggerParameterAttribute">
+            <summary>
+            Enriches Parameter metadata for a given top-level parameter
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.Annotations.SwaggerParameterAttribute.Description">
+            <summary>
+            A brief description of the parameter. This could contain examples of use.
+            GFM syntax can be used for rich text representation
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.Annotations.SwaggerParameterAttribute.Required">
+            <summary>
+            Determines whether this parameter is mandatory. If the parameter is in "path",
+            it will be required by default as Swagger does not allow optional path parameters
+            </summary>
+        </member>
+        <member name="T:Swashbuckle.AspNetCore.Annotations.SwaggerResponseAttribute">
+            <summary>
+            Adds or enriches Response metadata for a given action method
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.Annotations.SwaggerResponseAttribute.Description">
+            <summary>
+            A short description of the response. GFM syntax can be used for rich text representation.
+            </summary>
+        </member>
+        <member name="T:Swashbuckle.AspNetCore.Annotations.SwaggerTagAttribute">
+            <summary>
+            Adds Tag metadata for a given controller (i.e. the controller name tag)
+            </summary>
+            <remarks>
+            Don't use this attribute if you're tagging Operations with something other than controller name
+            e.g. if you're customizing the tagging behavior with TagActionsBy.
+            </remarks>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.Annotations.SwaggerTagAttribute.Description">
+            <summary>
+            A short description for the tag. GFM syntax can be used for rich text representation.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.Annotations.SwaggerTagAttribute.ExternalDocsUrl">
+            <summary>
+            A URL for additional external documentation. Value MUST be in the format of a URL.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.AnnotationsSwaggerGenOptionsExtensions.EnableAnnotations(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions,System.Boolean)">
+            <summary>
+            Enables Swagger annotations (SwaggerOperationAttribute, SwaggerParameterAttribute etc.)
+            </summary>
+            <param name="options"></param>
+            <param name="enableSubTypeAnnotations">Enables polymorphic schemas based on the presence of SwaggerSubTypeAttribute on base types</param>
+        </member>
+    </members>
+</doc>
