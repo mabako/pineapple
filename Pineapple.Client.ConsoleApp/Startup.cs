@@ -25,7 +25,7 @@ namespace Pineapple.Client.ConsoleApp
 
             services.AddPresenters();
             services.AddCommands();
-            services.AddScoped<CommandMapper>();
+            services.AddSingleton<CommandMapper>();
         }
     }
 }

@@ -16,8 +16,8 @@ namespace Pineapple.Client.ConsoleApp.Extensions
         /// <returns>the same services collection</returns>
         public static IServiceCollection AddCommands(this IServiceCollection services)
         {
-            services.AddScoped<CreateSpaceCommand>();
-            services.AddScoped<ListSpacesCommand>();
+            services.AddTransient<CreateSpaceCommand>();
+            services.AddTransient<ListSpacesCommand>();
 
             return services;
         }

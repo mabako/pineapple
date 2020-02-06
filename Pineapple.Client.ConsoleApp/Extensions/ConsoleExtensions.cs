@@ -27,8 +27,8 @@ namespace Pineapple.Client.ConsoleApp.Extensions
             where TOutputPort : class
             where TPresenter : class, TOutputPort
         {
-            services.AddScoped<TPresenter, TPresenter>();
-            services.AddScoped<TOutputPort>(x => x.GetRequiredService<TPresenter>());
+            services.AddTransient<TPresenter, TPresenter>();
+            services.AddTransient<TOutputPort>(x => x.GetRequiredService<TPresenter>());
         }
     }
 }
