@@ -37,6 +37,9 @@ export class NavMenu extends Component<{}, ILocalState> {
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                 </NavItem>
+                <NavItem>
+                  <a href="/$/swagger/" className="text-dark nav-link">API</a>
+                </NavItem>
               </ul>
             </Collapse>
           </Container>
