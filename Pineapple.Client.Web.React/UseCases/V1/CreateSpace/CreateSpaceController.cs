@@ -12,7 +12,7 @@ namespace Pineapple.Client.Web.React.UseCases.V1.CreateSpace
     /// <summary>
     /// Space controller.
     /// </summary>
-    [Route("$/api/spaces")]
+    [Route("$/api/v1/spaces")]
     [Produces("application/json")]
     [ApiController]
     public sealed class CreateSpaceController : ControllerBase

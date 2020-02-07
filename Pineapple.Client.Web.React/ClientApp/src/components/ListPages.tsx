@@ -23,7 +23,7 @@ export class ListPages extends Component<{}, ILocalState> {
   }
 
   async populateSpaces() {
-    const response = await fetch("$/api/spaces");
+    const response = await fetch("$/api/v1/spaces");
     const data = await response.json();
     this.setState({ existingSpaces: data, loading: false });
   }

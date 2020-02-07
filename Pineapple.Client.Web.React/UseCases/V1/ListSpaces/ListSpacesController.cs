@@ -7,7 +7,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Pineapple.Client.Web.React.UseCases.V1.ListSpaces
 {
-    [Route("$/api/spaces")]
+    [Route("$/api/v1/spaces")]
     [Produces("application/json")]
     [ApiController]
     public class ListSpacesController : ControllerBase
