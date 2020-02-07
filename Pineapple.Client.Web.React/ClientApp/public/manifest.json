@@ -1,6 +1,6 @@
 {
-  "short_name": "Pineapple.React",
-  "name": "Pineapple.React",
+  "short_name": "pineapple",
+  "name": "pineapple",
   "icons": [
     {
       "src": "favicon.ico",
