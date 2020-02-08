@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using JetBrains.Annotations;
 using Microsoft.Extensions.Options;
 using Pineapple.Infrastructure.DataAccess.Git.Configuration;
 

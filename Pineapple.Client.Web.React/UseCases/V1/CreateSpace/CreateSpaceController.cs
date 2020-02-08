@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using FluentMediator;
 using Microsoft.AspNetCore.Http;
@@ -36,9 +37,9 @@ namespace Pineapple.Client.Web.React.UseCases.V1.CreateSpace
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CreateSpaceResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Create([FromRoute] [Required] CreateSpaceRequest request)
+        public async Task<IActionResult?> Create([FromRoute] [Required] CreateSpaceRequest request)
         {
-            var input = new CreateSpaceInput(new SpaceName(request.SpaceName));
+            var input = new CreateSpaceInput(new SpaceName(request.SpaceName!));
             await _mediator.PublishAsync(input);
             return _presenter.ViewModel;
         }

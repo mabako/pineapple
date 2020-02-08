@@ -40,7 +40,7 @@ namespace Pineapple.IntegrationTests.Git.Repositories
             Assert.NotNull(space);
             Assert.Equal("single", space.Name.ToString());
             Assert.Equal(new DirectoryInfo(Path.Combine(_rootPath, "single")).FullName,
-                space.BaseDirectory.FullName);
+                space.BaseDirectory?.FullName);
         }
 
         [Fact]
@@ -73,7 +73,7 @@ namespace Pineapple.IntegrationTests.Git.Repositories
             var space = (Space) await _repository.Get(new SpaceName("a"));
             Assert.NotNull(space);
             Assert.Equal("A", space.Name.ToString());
-            Assert.Equal(Path.Combine(_rootPath, "A"), space.BaseDirectory.FullName);
+            Assert.Equal(Path.Combine(_rootPath, "A"), space.BaseDirectory?.FullName);
         }
 
         [Fact]

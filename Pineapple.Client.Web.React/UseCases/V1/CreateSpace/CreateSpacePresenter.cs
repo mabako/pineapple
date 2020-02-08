@@ -9,7 +9,7 @@ namespace Pineapple.Client.Web.React.UseCases.V1.CreateSpace
     /// </summary>
     public sealed class CreateSpacePresenter : IOutputPort
     {
-        public IActionResult ViewModel { get; private set; }
+        public IActionResult? ViewModel { get; private set; }
 
         public void Standard(CreateSpaceOutput output) => ViewModel = new OkObjectResult(new CreateSpaceResponse(output.Space.Name.ToString()));
 

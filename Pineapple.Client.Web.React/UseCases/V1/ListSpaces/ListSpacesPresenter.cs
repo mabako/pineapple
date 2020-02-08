@@ -6,7 +6,7 @@ namespace Pineapple.Client.Web.React.UseCases.V1.ListSpaces
 {
     public sealed class ListSpacesPresenter : IOutputPort
     {
-        public IActionResult ViewModel { get; private set; }
+        public IActionResult? ViewModel { get; private set; }
 
         public void Standard(ListSpacesOutput output)
         {

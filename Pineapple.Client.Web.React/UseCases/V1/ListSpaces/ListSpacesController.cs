@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using FluentMediator;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,7 +35,7 @@ namespace Pineapple.Client.Web.React.UseCases.V1.ListSpaces
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ListSpacesResponse))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult?> Index()
         {
             var input = new ListSpacesInput();
             await _mediator.PublishAsync(input);

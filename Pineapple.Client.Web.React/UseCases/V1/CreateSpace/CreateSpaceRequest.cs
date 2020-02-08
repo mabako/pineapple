@@ -10,7 +10,7 @@ namespace Pineapple.Client.Web.React.UseCases.V1.CreateSpace
         /// <summary>
         /// Name of the space.
         /// </summary>
-        [Required]
-        public string SpaceName { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        public string? SpaceName { get; set; }
     }
 }
