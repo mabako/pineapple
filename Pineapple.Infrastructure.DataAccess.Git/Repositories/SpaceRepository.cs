@@ -49,6 +49,9 @@ namespace Pineapple.Infrastructure.DataAccess.Git.Repositories
             SpacesCollection spaces = new SpacesCollection();
             foreach (DirectoryInfo directory in _physicalRootDirectory.GetDirectories())
             {
+                if (!Repository.IsValid(directory.FullName))
+                    continue;
+
                 try
                 {
                     var spaceName = new SpaceName(directory.Name);
