@@ -12,7 +12,7 @@ end_of_line = crlf
 [*.cs]
 indent_size = 4
 
-[*.{xml,config,*proj,nuspec,props,resx,targets,yml,tasks}]
+[*.{xml,config,*proj,nuspec,props,resx,targets,yml,tasks,css}]
 indent_size = 2
 
 [*.{ts,tsx,json,js,jsx}]

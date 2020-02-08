@@ -1,0 +1,32 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+h1 {
+  @apply text-3xl mt-4;
+}
+
+h2 {
+  @apply text-2xl mt-4;
+}
+
+h1, h2, p, ol, ul {
+  @apply mb-2;
+}
+
+.full-page {
+  @apply max-w-screen-xl w-full p-4;
+}
+
+h1:first-child, h2:first-child {
+  @apply mt-0;
+}
+
+ol {
+  @apply list-decimal list-inside;
+}
+
+ul {
+  @apply list-disc list-inside;
+}

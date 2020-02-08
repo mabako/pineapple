@@ -3,17 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
-    "merge": "^1.2.1",
-    "oidc-client": "^1.10.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^3.3.0",
-    "reactstrap": "^6.3.0",
-    "rimraf": "^2.7.1"
+    "react-scripts": "^3.3.0"
   },
   "devDependencies": {
     "@types/jest": "^25.1.1",
@@ -22,14 +15,16 @@
     "@types/react-dom": "^16.9.5",
     "@types/react-router": "^5.1.4",
     "@types/react-router-dom": "^5.1.3",
-    "@types/reactstrap": "^8.4.1",
     "ajv": "^6.11.0",
     "cross-env": "^5.2.1",
+    "rimraf": "^3.0.1",
+    "tailwindcss": "^1.2.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "rimraf ./build && react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run tailwind && react-scripts build",
+    "tailwind": "tailwind build src/tailwind.src.css -c tailwind.config.js -o src/tailwind.css",
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

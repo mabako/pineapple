@@ -34,7 +34,7 @@ export class ListPages extends Component<{}, ILocalState> {
       : ListPages.renderSpaces(this.state.existingSpaces.spaces);
 
     return (
-      <div>
+      <div className="full-page container">
         <h1>Welcome!</h1>
         <p>Pick a space to start.</p>
         {contents}
