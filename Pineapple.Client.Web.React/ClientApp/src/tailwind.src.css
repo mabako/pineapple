@@ -16,7 +16,7 @@ h1, h2, p, ol, ul {
 }
 
 .full-page {
-  @apply max-w-screen-xl w-full p-4;
+  @apply max-w-screen-md w-full p-4;
 }
 
 h1:first-child, h2:first-child {
