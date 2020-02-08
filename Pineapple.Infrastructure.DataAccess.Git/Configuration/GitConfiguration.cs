@@ -8,6 +8,6 @@
         /// <summary>
         /// Root path to use for git directories.
         /// </summary>
-        public string RootPath { get; set; } = ".\\Data";
+        public string RootPath { get; set; }
     }
 }

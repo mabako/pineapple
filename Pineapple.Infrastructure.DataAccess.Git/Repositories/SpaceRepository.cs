@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using LibGit2Sharp;
 using Microsoft.Extensions.Options;
@@ -35,9 +34,32 @@ namespace Pineapple.Infrastructure.DataAccess.Git.Repositories
                 throw new GitRootPathDoesNotExistException($"The root path '{rootPath}' does not exist.");
         }
 
+        /// <summary>
+        /// Retrieves the space with the given name.
+        /// </summary>
+        /// <remarks>The original space name passed to this method, and the name of the returned space, may differ on case-insensitive file systems.</remarks>
+        /// <param name="name">name of the space to retrieve</param>
+        /// <returns>the space</returns>
+        /// <exception cref="SpaceNotFoundException">Either the directory does not exist or is not a valid git repository.</exception>
         public Task<ISpace> Get(SpaceName name)
         {
-            throw new NotImplementedException();
+            #region Windows: Try to retrieve the name with correct case sensitivity
+            var fsInfo = _physicalRootDirectory.GetFileSystemInfos(name.ToString());
+            string folderName = name.ToString();
+            if (fsInfo.Length == 1)
+                folderName = fsInfo[0].Name;
+            #endregion
+
+            DirectoryInfo spaceDirectory = new DirectoryInfo(Path.Combine(_physicalRootDirectory.FullName, folderName));
+            if (!spaceDirectory.Exists || !Repository.IsValid(spaceDirectory.FullName))
+                throw new SpaceNotFoundException($"Space '{name}' does not exist.");
+
+            var space = new Space(new SpaceName(spaceDirectory.Name))
+            {
+                BaseDirectory = spaceDirectory,
+            };
+
+            return Task.FromResult<ISpace>(space);
         }
 
         /// <summary>
@@ -71,6 +93,8 @@ namespace Pineapple.Infrastructure.DataAccess.Git.Repositories
         /// </summary>
         /// <param name="rawSpace">the space to create</param>
         /// <returns>task</returns>
+        /// <exception cref="SpaceAlreadyExistsException">The space you tried to add already exists.</exception>
+        /// <exception cref="UnableToCreateSpaceException">Creating a git repository failed.</exception>
         public Task Add(ISpace rawSpace)
         {
             var space = (Space) rawSpace;

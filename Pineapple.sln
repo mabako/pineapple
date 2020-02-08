@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.Client.ConsoleApp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.Client.DependencyInjection", "Pineapple.Client.DependencyInjection\Pineapple.Client.DependencyInjection.csproj", "{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pineapple.IntegrationTests", "Pineapple.IntegrationTests\Pineapple.IntegrationTests.csproj", "{729679AE-34A4-44EA-9120-EAE917056937}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{729679AE-34A4-44EA-9120-EAE917056937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{729679AE-34A4-44EA-9120-EAE917056937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{729679AE-34A4-44EA-9120-EAE917056937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{729679AE-34A4-44EA-9120-EAE917056937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{603B9462-86D7-4C95-8519-FB30781D6044} = {F841A5AB-C1C7-44C7-A228-93D30659ED25}
@@ -75,5 +81,6 @@ Global
 		{E49D5EBF-CD7E-4C8D-8E18-6975BA9EFE82} = {F841A5AB-C1C7-44C7-A228-93D30659ED25}
 		{A6EB2875-2A97-411E-A8DF-1DD237C4D004} = {F841A5AB-C1C7-44C7-A228-93D30659ED25}
 		{E90ECEA0-CBA5-4FA4-8EDA-C56B48915761} = {F841A5AB-C1C7-44C7-A228-93D30659ED25}
+		{729679AE-34A4-44EA-9120-EAE917056937} = {26DD993D-A52D-48EB-826F-511445D8403A}
 	EndGlobalSection
 EndGlobal
