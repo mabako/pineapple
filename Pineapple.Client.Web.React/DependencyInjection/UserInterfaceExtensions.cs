@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Pineapple.Client.Web.React.UseCases.V1.CreatePage;
 using Pineapple.Client.Web.React.UseCases.V1.CreateSpace;
 using Pineapple.Client.Web.React.UseCases.V1.ListSpaces;
 using Boundaries = Pineapple.Application.Boundaries;
@@ -11,6 +12,7 @@ namespace Pineapple.Client.Web.React.DependencyInjection
         {
             services.AddUseCase<Boundaries.CreateSpace.IOutputPort, CreateSpacePresenter>();
             services.AddUseCase<Boundaries.ListSpaces.IOutputPort, ListSpacesPresenter>();
+            services.AddUseCase<Boundaries.CreatePage.IOutputPort, CreatePagePresenter>();
 
             return services;
         }

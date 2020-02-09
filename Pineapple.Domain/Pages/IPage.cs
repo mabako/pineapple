@@ -1,4 +1,6 @@
 ﻿using Pineapple.Domain.Pages.ValueObjects;
+using Pineapple.Domain.Pages.Version;
+using Pineapple.Domain.Spaces.ValueObjects;
 
 namespace Pineapple.Domain.Pages
 {
@@ -8,13 +10,18 @@ namespace Pineapple.Domain.Pages
     public interface IPage
     {
         /// <summary>
+        /// The space this page exists in.
+        /// </summary>
+        SpaceName Space { get; }
+
+        /// <summary>
         /// Name of this page.
         /// </summary>
         PageName Name { get; }
-        
+
         /// <summary>
-        /// Current content.
+        /// Retrieves the current version of this page.
         /// </summary>
-        string Content { get; }
+        IVersion CurrentVersion { get; }
     }
 }

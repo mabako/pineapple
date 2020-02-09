@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Pineapple.Domain.Pages;
 using Pineapple.Domain.Pages.ValueObjects;
+using Pineapple.Domain.Pages.Version;
 using Pineapple.Domain.Spaces;
 
 namespace Pineapple.Infrastructure.DataAccess.InMemory.Repositories
@@ -20,7 +21,12 @@ namespace Pineapple.Infrastructure.DataAccess.InMemory.Repositories
             throw new NotImplementedException();
         }
 
-        public Task Update(ISpace space, IPage page)
+        public Task Add(IPage page, IVersion version)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Update(IPage page, IVersion version)
         {
             throw new NotImplementedException();
         }

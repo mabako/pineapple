@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Pineapple.Client.ConsoleApp.UseCases.CreatePage;
 using Pineapple.Client.ConsoleApp.UseCases.CreateSpace;
 using Pineapple.Client.ConsoleApp.UseCases.ListSpaces;
 using Boundaries = Pineapple.Application.Boundaries;
@@ -19,6 +20,7 @@ namespace Pineapple.Client.ConsoleApp.Extensions
         {
             services.AddUseCase<Boundaries.CreateSpace.IOutputPort, CreateSpacePresenter>();
             services.AddUseCase<Boundaries.ListSpaces.IOutputPort, ListSpacesPresenter>();
+            services.AddUseCase<Boundaries.CreatePage.IOutputPort, CreatePagePresenter>();
 
             return services;
         }

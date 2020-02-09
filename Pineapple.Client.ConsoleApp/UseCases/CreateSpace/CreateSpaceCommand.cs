@@ -6,7 +6,7 @@ using Pineapple.Domain.Spaces.ValueObjects;
 namespace Pineapple.Client.ConsoleApp.UseCases.CreateSpace
 {
     /// <summary>
-    /// Spaces commands to create a space.
+    /// Command to create a new space.
     /// </summary>
     public sealed class CreateSpaceCommand
     {

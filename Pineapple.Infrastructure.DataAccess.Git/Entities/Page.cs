@@ -1,5 +1,7 @@
 ﻿using Pineapple.Domain.Pages;
 using Pineapple.Domain.Pages.ValueObjects;
+using Pineapple.Domain.Pages.Version;
+using Pineapple.Domain.Spaces.ValueObjects;
 
 namespace Pineapple.Infrastructure.DataAccess.Git.Entities
 {
@@ -8,12 +10,15 @@ namespace Pineapple.Infrastructure.DataAccess.Git.Entities
     /// </summary>
     public class Page : IPage
     {
-        public Page(PageName name)
+        public Page(SpaceName space, PageName name)
         {
+            Space = space;
             Name = name;
+            CurrentVersion = new UnknownVersion();
         }
 
+        public SpaceName Space { get; }
         public PageName Name { get; }
-        public string Content { get; set; } = string.Empty;
+        public IVersion CurrentVersion { get; set; }
     }
 }

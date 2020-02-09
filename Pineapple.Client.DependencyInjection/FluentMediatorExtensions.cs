@@ -9,17 +9,16 @@ namespace Pineapple.Client.DependencyInjection
     /// </summary>
     public static class FluentMediatorExtensions
     {
-        public static IServiceCollection AddMediator(this IServiceCollection services)
+        public static void AddMediator(this IServiceCollection services)
         {
             services.AddFluentMediator(
                 builder =>
                 {
                     builder.AddUseCase<Boundaries.CreateSpace.IUseCase, Boundaries.CreateSpace.CreateSpaceInput>();
                     builder.AddUseCase<Boundaries.ListSpaces.IUseCase, Boundaries.ListSpaces.ListSpacesInput>();
+                    builder.AddUseCase<Boundaries.CreatePage.IUseCase, Boundaries.CreatePage.CreatePageInput>();
                 }
             );
-
-            return services;
         }
 
         private static void AddUseCase<TUseCase, TInput>(this IPipelineProviderBuilder builder)

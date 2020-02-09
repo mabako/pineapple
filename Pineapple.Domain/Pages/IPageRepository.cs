@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Pineapple.Domain.Pages.ValueObjects;
+using Pineapple.Domain.Pages.Version;
 using Pineapple.Domain.Spaces;
 
 namespace Pineapple.Domain.Pages
@@ -18,12 +19,19 @@ namespace Pineapple.Domain.Pages
         Task<IPage> Get(ISpace space, PageName page);
 
         /// <summary>
-        /// Updates the <paramref name="page"/> within the <paramref name="space"/>.
+        /// Creates a new page.
         /// </summary>
-        /// <param name="space">space containing the page</param>
+        /// <param name="page">page name</param>
+        /// <param name="version">content to include in the current version</param>
+        /// <returns>the created page</returns>
+        Task Add(IPage page, IVersion version);
+
+        /// <summary>
+        /// Creates a new version of the <paramref name="page"/>.
+        /// </summary>
         /// <param name="page">page to update</param>
+        /// <param name="version">content to include in the (new) version</param>
         /// <returns>task</returns>
-        // TODO we should very likely pass an IPageEdit/IPageRevision here that contains PageName,author,content; and maybe return the updated IPage -- or differentiate between "add page" and "update page" in some way
-        Task Update(ISpace space, IPage page);
+        Task Update(IPage page, IVersion version);
     }
 }

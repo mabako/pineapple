@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Pineapple.Domain.Pages;
 using Pineapple.Domain.Spaces;
 using Boundaries = Pineapple.Application.Boundaries;
 using AppUseCases = Pineapple.Application.UseCases;
@@ -10,14 +11,14 @@ namespace Pineapple.Client.DependencyInjection
     /// </summary>
     public static class ApplicationExtensions
     {
-        public static IServiceCollection AddUseCases(this IServiceCollection services)
+        public static void AddUseCases(this IServiceCollection services)
         {
             services.AddScoped<Boundaries.CreateSpace.IUseCase, AppUseCases.CreateSpace>();
             services.AddScoped<Boundaries.ListSpaces.IUseCase, AppUseCases.ListSpaces>();
+            services.AddScoped<Boundaries.CreatePage.IUseCase, AppUseCases.CreatePage>();
 
             services.AddScoped<SpaceService, SpaceService>();
-
-            return services;
+            services.AddScoped<PageService, PageService>();
         }
     }
 }

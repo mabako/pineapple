@@ -8,15 +8,13 @@ namespace Pineapple.Client.DependencyInjection
 {
     public static class GitInfrastructureExtension
     {
-        public static IServiceCollection AddGitPersistence(this IServiceCollection services)
+        public static void AddGitPersistence(this IServiceCollection services)
         {
             services.AddScoped<ISpaceFactory, GitEntityFactory>();
             services.AddScoped<IPageFactory, GitEntityFactory>();
 
             services.AddScoped<ISpaceRepository, SpaceRepository>();
             services.AddScoped<IPageRepository, PageRepository>();
-
-            return services;
         }
     }
 }

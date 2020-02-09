@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Pineapple.Client.ConsoleApp.UseCases.CreatePage;
 using Pineapple.Client.ConsoleApp.UseCases.CreateSpace;
 using Pineapple.Client.ConsoleApp.UseCases.ListSpaces;
 
@@ -18,6 +19,7 @@ namespace Pineapple.Client.ConsoleApp.Extensions
         {
             services.AddTransient<CreateSpaceCommand>();
             services.AddTransient<ListSpacesCommand>();
+            services.AddTransient<CreatePageCommand>();
 
             return services;
         }

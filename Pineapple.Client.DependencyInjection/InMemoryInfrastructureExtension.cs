@@ -8,7 +8,7 @@ namespace Pineapple.Client.DependencyInjection
 {
     public static class InMemoryInfrastructureExtension
     {
-        public static IServiceCollection AddInMemoryPersistence(this IServiceCollection services)
+        public static void AddInMemoryPersistence(this IServiceCollection services)
         {
             services.AddScoped<ISpaceFactory, InMemoryEntityFactory>();
             services.AddScoped<IPageFactory, InMemoryEntityFactory>();
@@ -17,8 +17,6 @@ namespace Pineapple.Client.DependencyInjection
 
             services.AddScoped<ISpaceRepository, SpaceRepository>();
             services.AddScoped<IPageRepository, PageRepository>();
-
-            return services;
         }
     }
 }
