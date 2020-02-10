@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using Pineapple.Domain.Spaces.Exceptions;
 
 namespace Pineapple.Domain.Spaces.ValueObjects
@@ -6,7 +7,7 @@ namespace Pineapple.Domain.Spaces.ValueObjects
     /// <summary>
     /// Name of a Space.
     /// </summary>
-    public struct SpaceName
+    public sealed class SpaceName : IEquatable<SpaceName>
     {
         private static readonly Regex ValidSpaceName = new Regex(@"^([a-zA-Z\-_]{1,32})$", RegexOptions.Compiled);
 
@@ -28,5 +29,23 @@ namespace Pineapple.Domain.Spaces.ValueObjects
         }
 
         public override string ToString() => _name;
+
+        public bool Equals(SpaceName? other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return _name == other._name;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return ReferenceEquals(this, obj) || obj is SpaceName other && Equals(other);
+        }
+
+        public override int GetHashCode() => _name.GetHashCode();
+
+        public static bool operator ==(SpaceName? left, SpaceName? right) => Equals(left, right);
+
+        public static bool operator !=(SpaceName? left, SpaceName? right) => !Equals(left, right);
     }
 }
