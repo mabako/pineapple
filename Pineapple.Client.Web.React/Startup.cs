@@ -1,7 +1,7 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
@@ -35,7 +35,7 @@ namespace Pineapple.Client.Web.React
         /// </summary>
         /// <param name="app">The application to configure.</param>
         /// <param name="env">The environment that was set up by asp.net based on environment variables, configuration etc.</param>
-        [SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "This method gets called by the runtime only.")]
+        [UsedImplicitly]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
