@@ -17,11 +17,11 @@ namespace Pineapple.Application.UseCases
         private readonly PageService _pageService;
 
         /// <summary>
-        /// Creates a new <see cref="CreateSpace"/>.
+        /// Initializes a new instance of the <see cref="CreatePage"/> class.
         /// </summary>
-        /// <param name="outputPort"></param>
-        /// <param name="spaceRepository"></param>
-        /// <param name="pageService"></param>
+        /// <param name="outputPort">The output port to send all messages to.</param>
+        /// <param name="spaceRepository">The repository holding all spaces.</param>
+        /// <param name="pageService">The service to manage pages.</param>
         public CreatePage(IOutputPort outputPort, ISpaceRepository spaceRepository, PageService pageService)
         {
             _outputPort = outputPort;
@@ -29,6 +29,7 @@ namespace Pineapple.Application.UseCases
             _pageService = pageService;
         }
 
+        /// <inheritdoc/>
         public async Task Execute(CreatePageInput input)
         {
             try

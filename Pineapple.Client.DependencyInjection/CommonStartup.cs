@@ -25,7 +25,7 @@ namespace Pineapple.Client.DependencyInjection
         /// <summary>
         /// Configures the services if in a production environment.
         /// </summary>
-        /// <param name="services">The service collection to to configure.</param>
+        /// <param name="services">The service collection to configure.</param>
         public void ConfigureProductionServices(IServiceCollection services)
         {
             services.AddInMemoryPersistence();
@@ -36,7 +36,7 @@ namespace Pineapple.Client.DependencyInjection
         /// <summary>
         /// Configures the services if in a non-production environment, such as test or development.
         /// </summary>
-        /// <param name="services">The service collection to to configure.</param>
+        /// <param name="services">The service collection to configure.</param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGitPersistence();
@@ -47,7 +47,7 @@ namespace Pineapple.Client.DependencyInjection
         /// <summary>
         /// Configures common services available in both production and non-production environments.
         /// </summary>
-        /// <param name="services">The service collection to to configure.</param>
+        /// <param name="services">The service collection to configure.</param>
         protected virtual void ConfigureCommonServices(IServiceCollection services)
         {
             services.AddUseCases();

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using JetBrains.Annotations;
+using Microsoft.Extensions.DependencyInjection;
 using Pineapple.Client.Web.React.UseCases.V1.CreatePage;
 using Pineapple.Client.Web.React.UseCases.V1.CreateSpace;
 using Pineapple.Client.Web.React.UseCases.V1.ListSpaces;
@@ -22,7 +23,7 @@ namespace Pineapple.Client.Web.React.DependencyInjection
             services.AddUseCase<Boundaries.CreatePage.IOutputPort, CreatePagePresenter>();
         }
 
-        private static void AddUseCase<TOutputPort, TPresenter>(this IServiceCollection services)
+        private static void AddUseCase<TOutputPort, [MeansImplicitUse(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)] TPresenter>(this IServiceCollection services)
             where TOutputPort : class
             where TPresenter : class, TOutputPort
         {

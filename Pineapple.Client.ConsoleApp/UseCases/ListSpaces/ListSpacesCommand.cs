@@ -7,14 +7,14 @@ namespace Pineapple.Client.ConsoleApp.UseCases.ListSpaces
     /// <summary>
     /// Command to list all spaces.
     /// </summary>
-    public class ListSpacesCommand
+    public sealed class ListSpacesCommand
     {
         private readonly IMediator _mediator;
 
         /// <summary>
-        /// Creates a new <see cref="ListSpacesCommand"/>.
+        /// Initializes a new instance of the <see cref="ListSpacesCommand"/> class.
         /// </summary>
-        /// <param name="mediator">mediator</param>
+        /// <param name="mediator">The mediator instance to publish messages with.</param>
         public ListSpacesCommand(IMediator mediator)
         {
             _mediator = mediator;
@@ -23,7 +23,7 @@ namespace Pineapple.Client.ConsoleApp.UseCases.ListSpaces
         /// <summary>
         /// Lists all existing spaces.
         /// </summary>
-        /// <returns>task</returns>
+        /// <returns>Task.</returns>
         public async Task ListSpaces()
         {
             var input = new ListSpacesInput();

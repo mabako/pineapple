@@ -11,17 +11,14 @@ namespace Pineapple.Client.ConsoleApp.Extensions
     public static class CommandsExtension
     {
         /// <summary>
-        /// Initializes all registered commands.
+        /// Initializes all known commands.
         /// </summary>
-        /// <param name="services">services collection</param>
-        /// <returns>the same services collection</returns>
-        public static IServiceCollection AddCommands(this IServiceCollection services)
+        /// <param name="services">The service collection to add the commands to.</param>
+        public static void AddCommands(this IServiceCollection services)
         {
             services.AddTransient<CreateSpaceCommand>();
             services.AddTransient<ListSpacesCommand>();
             services.AddTransient<CreatePageCommand>();
-
-            return services;
         }
     }
 }

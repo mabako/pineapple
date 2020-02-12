@@ -9,12 +9,12 @@ namespace Pineapple.Domain.Spaces
     public interface ISpace
     {
         /// <summary>
-        /// Name of the space, uniquely identifying it.
+        /// Gets name of the space, uniquely identifying it.
         /// </summary>
         SpaceName Name { get; }
 
         /// <summary>
-        /// All pages contained within this space.
+        /// Gets all pages contained within this space.
         /// </summary>
         PagesCollection Pages { get; }
     }

@@ -3,19 +3,22 @@
 namespace Pineapple.Application.Boundaries.CreateSpace
 {
     /// <summary>
-    /// Create Space input message.
+    /// Input message to create a new space.
     /// </summary>
     public sealed class CreateSpaceInput : IUseCaseInput
     {
         /// <summary>
-        /// Creates a new <see cref="CreateSpaceInput"/>.
+        /// Initializes a new instance of the <see cref="CreateSpaceInput"/> class.
         /// </summary>
-        /// <param name="spaceName">space name</param>
+        /// <param name="spaceName">The name of the space to create.</param>
         public CreateSpaceInput(SpaceName spaceName)
         {
             SpaceName = spaceName;
         }
 
+        /// <summary>
+        /// Gets the name of the space to create.
+        /// </summary>
         public SpaceName SpaceName { get; }
     }
 }

@@ -8,8 +8,13 @@ namespace Pineapple.Infrastructure.DataAccess.Git.Entities
     /// <summary>
     /// File within a git repository.
     /// </summary>
-    public class Page : IPage
+    public sealed class Page : IPage
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Page"/> class.
+        /// </summary>
+        /// <param name="space">Space this page exists in.</param>
+        /// <param name="name">Name of the page.</param>
         public Page(SpaceName space, PageName name)
         {
             Space = space;
@@ -17,8 +22,13 @@ namespace Pineapple.Infrastructure.DataAccess.Git.Entities
             CurrentVersion = new UnknownVersion();
         }
 
+        /// <inheritdoc/>
         public SpaceName Space { get; }
+
+        /// <inheritdoc/>
         public PageName Name { get; }
-        public IVersion CurrentVersion { get; set; }
+
+        /// <inheritdoc/>
+        public IVersion CurrentVersion { get; }
     }
 }

@@ -15,9 +15,9 @@ namespace Pineapple.Client.ConsoleApp.UseCases.CreatePage
         private readonly IMediator _mediator;
 
         /// <summary>
-        /// Creates a new <see cref="CreatePageCommand"/>.
+        /// Initializes a new instance of the <see cref="CreatePageCommand"/> class.
         /// </summary>
-        /// <param name="mediator">mediator instance</param>
+        /// <param name="mediator">The mediator instance to publish messages with.</param>
         public CreatePageCommand(IMediator mediator)
         {
             _mediator = mediator;
@@ -26,10 +26,10 @@ namespace Pineapple.Client.ConsoleApp.UseCases.CreatePage
         /// <summary>
         /// Creates the page with the given name.
         /// </summary>
-        /// <param name="spaceName">name of an existing space</param>
-        /// <param name="pageName">page name</param>
-        /// <param name="sourceFile">file to read the new page content from</param>
-        /// <returns>task</returns>
+        /// <param name="spaceName">Name of the space that the page should be created in.</param>
+        /// <param name="pageName">Name of the page to create.</param>
+        /// <param name="sourceFile">The file to read the initial page content from.</param>
+        /// <returns>Task.</returns>
         public async Task CreatePage(SpaceName spaceName, PageName pageName, FileInfo sourceFile)
         {
             string content = await File.ReadAllTextAsync(sourceFile.FullName);

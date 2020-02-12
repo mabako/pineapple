@@ -10,17 +10,17 @@ namespace Pineapple.Domain.Pages
     public interface IPage
     {
         /// <summary>
-        /// The space this page exists in.
+        /// Gets the space this page exists in.
         /// </summary>
         SpaceName Space { get; }
 
         /// <summary>
-        /// Name of this page.
+        /// Gets name of this page.
         /// </summary>
         PageName Name { get; }
 
         /// <summary>
-        /// Retrieves the current version of this page.
+        /// Gets the current version of this page.
         /// </summary>
         IVersion CurrentVersion { get; }
     }

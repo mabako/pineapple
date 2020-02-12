@@ -12,17 +12,17 @@ namespace Pineapple.Domain.Pages
         /// <summary>
         /// Creates a new page.
         /// </summary>
-        /// <param name="space">parent space</param>
-        /// <param name="pageName">name of the new page</param>
-        /// <returns>the new page</returns>
+        /// <param name="space">The space containing the new page.</param>
+        /// <param name="pageName">The name of the page to create.</param>
+        /// <returns>The newly created page.</returns>
         IPage NewPage(ISpace space, PageName pageName);
 
         /// <summary>
         /// Creates a new version of a page.
         /// </summary>
-        /// <param name="page">page</param>
-        /// <param name="content">content to include</param>
-        /// <returns>the new version</returns>
+        /// <param name="page">The page to modify.</param>
+        /// <param name="content">The content to replace the current page with.</param>
+        /// <returns>The newly created version.</returns>
         IVersion NewVersion(IPage page, string content);
     }
 }

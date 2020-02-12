@@ -10,5 +10,8 @@
 
         <!-- Do not add headers to each file. -->
         <Rule Id="SA1633" Action="None" />
+
+        <!-- Allow regions. -->
+        <Rule Id="SA1123" Action="None"/>
     </Rules>
 </RuleSet>

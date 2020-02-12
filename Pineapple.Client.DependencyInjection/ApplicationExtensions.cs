@@ -1,16 +1,20 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Pineapple.Domain.Pages;
 using Pineapple.Domain.Spaces;
-using Boundaries = Pineapple.Application.Boundaries;
 using AppUseCases = Pineapple.Application.UseCases;
+using Boundaries = Pineapple.Application.Boundaries;
 
 namespace Pineapple.Client.DependencyInjection
 {
     /// <summary>
-    /// Adds Use Cases.
+    /// Configures all use cases to their implementation types.
     /// </summary>
     public static class ApplicationExtensions
     {
+        /// <summary>
+        /// Adds all use case implementations as implementations of their interface types.
+        /// </summary>
+        /// <param name="services">The service collection to to configure.</param>
         public static void AddUseCases(this IServiceCollection services)
         {
             services.AddScoped<Boundaries.CreateSpace.IUseCase, AppUseCases.CreateSpace>();

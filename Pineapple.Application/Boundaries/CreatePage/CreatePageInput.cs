@@ -3,14 +3,17 @@ using Pineapple.Domain.Spaces.ValueObjects;
 
 namespace Pineapple.Application.Boundaries.CreatePage
 {
+    /// <summary>
+    /// Input message to create a new page.
+    /// </summary>
     public sealed class CreatePageInput : IUseCaseInput
     {
         /// <summary>
-        /// Creates a new <see cref="CreatePageInput"/>.
+        /// Initializes a new instance of the <see cref="CreatePageInput"/> class.
         /// </summary>
-        /// <param name="spaceName">name of the parent space</param>
-        /// <param name="pageName">name of the page</param>
-        /// <param name="content">content to initialize the page with</param>
+        /// <param name="spaceName">Name of the space that the page should be created in.</param>
+        /// <param name="pageName">Name of the page to create.</param>
+        /// <param name="content">Initial content of the newly created page.</param>
         public CreatePageInput(SpaceName spaceName, PageName pageName, string content)
         {
             SpaceName = spaceName;
@@ -19,17 +22,17 @@ namespace Pineapple.Application.Boundaries.CreatePage
         }
 
         /// <summary>
-        /// Name of the existing space.
+        /// Gets name of the space that the page should be created in.
         /// </summary>
         public SpaceName SpaceName { get; }
 
         /// <summary>
-        /// Name of the new page.
+        /// Gets name of the page to create.
         /// </summary>
         public PageName PageName { get; }
 
         /// <summary>
-        /// Content to initialize the page with.
+        /// Gets the initial content of the newly created page.
         /// </summary>
         public string Content { get; }
     }

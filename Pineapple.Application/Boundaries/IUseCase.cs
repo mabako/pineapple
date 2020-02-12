@@ -5,15 +5,15 @@ namespace Pineapple.Application.Boundaries
     /// <summary>
     /// Use Case.
     /// </summary>
-    /// <typeparam name="TInput">type of the input message</typeparam>
+    /// <typeparam name="TInput">The type of the input message.</typeparam>
     public interface IUseCase<in TInput>
         where TInput : IUseCaseInput
     {
         /// <summary>
         /// Executes the given use case.
         /// </summary>
-        /// <param name="input">input message</param>
-        /// <returns>task</returns>
+        /// <param name="input">The input message to process.</param>
+        /// <returns>Task.</returns>
         Task Execute(TInput input);
     }
 }

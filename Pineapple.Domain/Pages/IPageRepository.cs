@@ -13,25 +13,25 @@ namespace Pineapple.Domain.Pages
         /// <summary>
         /// Gets a page.
         /// </summary>
-        /// <param name="space">space containing the page</param>
-        /// <param name="page">page to display</param>
-        /// <returns>the page</returns>
+        /// <param name="space">The space containing the page.</param>
+        /// <param name="page">Name of the page to fetch.</param>
+        /// <returns>The instance of the fetched page.</returns>
         Task<IPage> Get(ISpace space, PageName page);
 
         /// <summary>
         /// Creates a new page.
         /// </summary>
-        /// <param name="page">page name</param>
-        /// <param name="version">content to include in the current version</param>
-        /// <returns>the created page</returns>
+        /// <param name="page">The page to add to the repository.</param>
+        /// <param name="version">The initial version of the page.</param>
+        /// <returns>Task.</returns>
         Task Add(IPage page, IVersion version);
 
         /// <summary>
         /// Creates a new version of the <paramref name="page"/>.
         /// </summary>
-        /// <param name="page">page to update</param>
-        /// <param name="version">content to include in the (new) version</param>
-        /// <returns>task</returns>
+        /// <param name="page">The page that should be updated.</param>
+        /// <param name="version">A version of the page replacing the current one.</param>
+        /// <returns>Task.</returns>
         Task Update(IPage page, IVersion version);
     }
 }

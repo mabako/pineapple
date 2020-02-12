@@ -3,21 +3,21 @@
 namespace Pineapple.Application.Boundaries.ListSpaces
 {
     /// <summary>
-    /// List of spaces currently in existence.
+    /// Output message containing all spaces currently in existence.
     /// </summary>
-    public class ListSpacesOutput : IUseCaseOutput
+    public sealed class ListSpacesOutput : IUseCaseOutput
     {
         /// <summary>
-        /// Creates a new <see cref="ListSpacesOutput"/>.
+        /// Initializes a new instance of the <see cref="ListSpacesOutput"/> class.
         /// </summary>
-        /// <param name="existingSpaces">all existing spaces</param>
+        /// <param name="existingSpaces">A collection of all existing spaces.</param>
         public ListSpacesOutput(SpacesCollection existingSpaces)
         {
             ExistingSpaces = existingSpaces;
         }
 
         /// <summary>
-        /// All currently existing spaces.
+        /// Gets all currently existing spaces.
         /// </summary>
         public SpacesCollection ExistingSpaces { get; }
     }

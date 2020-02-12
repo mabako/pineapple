@@ -6,8 +6,13 @@ using Pineapple.Domain.Spaces.ValueObjects;
 namespace Pineapple.Infrastructure.DataAccess.InMemory.Entities
 {
     /// <inheritdoc/>
-    public class Page : IPage
+    public sealed class Page : IPage
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Page"/> class.
+        /// </summary>
+        /// <param name="space">Name of the space this page is contained in.</param>
+        /// <param name="name">Name of this page.</param>
         public Page(SpaceName space, PageName name)
         {
             Space = space;
@@ -15,8 +20,13 @@ namespace Pineapple.Infrastructure.DataAccess.InMemory.Entities
             CurrentVersion = new UnknownVersion();
         }
 
+        /// <inheritdoc/>
         public SpaceName Space { get; }
+
+        /// <inheritdoc/>
         public PageName Name { get; }
-        public IVersion CurrentVersion { get; set; }
+
+        /// <inheritdoc/>
+        public IVersion CurrentVersion { get; }
     }
 }

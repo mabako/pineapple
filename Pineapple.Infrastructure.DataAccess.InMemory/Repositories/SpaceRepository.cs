@@ -12,6 +12,10 @@ namespace Pineapple.Infrastructure.DataAccess.InMemory.Repositories
     {
         private readonly InMemoryContext _context;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SpaceRepository"/> class.
+        /// </summary>
+        /// <param name="context">The context holding all in-memory entities.</param>
         public SpaceRepository(InMemoryContext context)
         {
             _context = context;
@@ -22,7 +26,9 @@ namespace Pineapple.Infrastructure.DataAccess.InMemory.Repositories
         {
             Space space = _context.Spaces.SingleOrDefault(x => x.Name.Equals(name));
             if (space == null)
+            {
                 throw new SpaceNotFoundException($"The space '{name}' does not exist.");
+            }
 
             return Task.FromResult<ISpace>(space);
         }
@@ -39,7 +45,9 @@ namespace Pineapple.Infrastructure.DataAccess.InMemory.Repositories
         public async Task Add(ISpace space)
         {
             if (_context.Spaces.Any(x => x.Name.Equals(space.Name)))
+            {
                 throw new SpaceAlreadyExistsException($"The space '{space.Name}' already exists.");
+            }
 
             _context.Spaces.Add((Space)space);
             await Task.CompletedTask;

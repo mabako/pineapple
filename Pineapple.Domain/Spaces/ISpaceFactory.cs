@@ -10,8 +10,8 @@ namespace Pineapple.Domain.Spaces
         /// <summary>
         /// Creates a new space.
         /// </summary>
-        /// <param name="name">name of the space</param>
-        /// <returns>the new space</returns>
+        /// <param name="name">The name of the space to create.</param>
+        /// <returns>The newly created space.</returns>
         ISpace NewSpace(SpaceName name);
     }
 }

@@ -1,16 +1,16 @@
 ﻿namespace Pineapple.Application.Boundaries
 {
     /// <summary>
-    /// Standard output port.
+    /// Standard output port to process successful messages.
     /// </summary>
-    /// <typeparam name="TOutput">type of the output message.</typeparam>
+    /// <typeparam name="TOutput">The type of the standard output message, usually if the use case was executed successfully.</typeparam>
     public interface IOutputPortStandard<in TOutput>
         where TOutput : IUseCaseOutput
     {
         /// <summary>
         /// Writes a message to the standard output.
         /// </summary>
-        /// <param name="output">output message</param>
+        /// <param name="output">The message to write to the standard output.</param>
         void Standard(TOutput output);
     }
 }

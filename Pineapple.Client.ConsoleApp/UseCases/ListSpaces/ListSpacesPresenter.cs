@@ -8,13 +8,16 @@ namespace Pineapple.Client.ConsoleApp.UseCases.ListSpaces
     /// <inheritdoc />
     public sealed class ListSpacesPresenter : IOutputPort
     {
+        /// <inheritdoc/>
         public void Standard(ListSpacesOutput output)
         {
             var spaces = output.ExistingSpaces.GetSpaceNames();
             if (spaces.Any())
             {
                 foreach (SpaceName spaceName in spaces)
+                {
                     Console.WriteLine($"* {spaceName}");
+                }
             }
             else
             {

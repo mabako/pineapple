@@ -12,10 +12,13 @@ namespace Pineapple.Infrastructure.DataAccess.InMemory
     /// </summary>
     public sealed class InMemoryEntityFactory : ISpaceFactory, IPageFactory
     {
+        /// <inheritdoc/>
         public ISpace NewSpace(SpaceName name) => new Entities.Space(name);
 
+        /// <inheritdoc/>
         public IPage NewPage(ISpace space, PageName pageName) => new Entities.Page(space.Name, pageName);
 
+        /// <inheritdoc/>
         public IVersion NewVersion(IPage page, string content)
         {
             throw new NotImplementedException();

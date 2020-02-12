@@ -13,9 +13,9 @@ namespace Pineapple.Client.ConsoleApp.UseCases.CreateSpace
         private readonly IMediator _mediator;
 
         /// <summary>
-        /// Creates a new <see cref="CreateSpaceCommand"/>.
+        /// Initializes a new instance of the <see cref="CreateSpaceCommand"/> class.
         /// </summary>
-        /// <param name="mediator">mediator instance</param>
+        /// <param name="mediator">The mediator instance to publish messages with.</param>
         public CreateSpaceCommand(IMediator mediator)
         {
             _mediator = mediator;
@@ -24,8 +24,8 @@ namespace Pineapple.Client.ConsoleApp.UseCases.CreateSpace
         /// <summary>
         /// Creates the space with the given name.
         /// </summary>
-        /// <param name="name">space name</param>
-        /// <returns>task</returns>
+        /// <param name="name">The name of the new space to create.</param>
+        /// <returns>Task.</returns>
         public async Task CreateSpace(SpaceName name)
         {
             var input = new CreateSpaceInput(name);

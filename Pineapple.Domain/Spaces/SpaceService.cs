@@ -12,10 +12,10 @@ namespace Pineapple.Domain.Spaces
         private readonly ISpaceRepository _spaceRepository;
 
         /// <summary>
-        /// Creates a new instance of <see cref="SpaceService"/>.
+        /// Initializes a new instance of the <see cref="SpaceService"/> class.
         /// </summary>
-        /// <param name="spaceFactory">Space Factory</param>
-        /// <param name="spaceRepository">Space Repository</param>
+        /// <param name="spaceFactory">The factory for creating new space entities.</param>
+        /// <param name="spaceRepository">The repository holding all spaces.</param>
         public SpaceService(ISpaceFactory spaceFactory, ISpaceRepository spaceRepository)
         {
             _spaceFactory = spaceFactory;
@@ -23,10 +23,10 @@ namespace Pineapple.Domain.Spaces
         }
 
         /// <summary>
-        /// Creates a space.
+        /// Creates a new space.
         /// </summary>
-        /// <param name="name">name of the space-to-be</param>
-        /// <returns>created space</returns>
+        /// <param name="name">The name of the space-to-be.</param>
+        /// <returns>The newly created space.</returns>
         public async Task<ISpace> CreateSpace(SpaceName name)
         {
             var space = _spaceFactory.NewSpace(name);
@@ -34,10 +34,7 @@ namespace Pineapple.Domain.Spaces
             return space;
         }
 
-        /// <summary>
-        /// Lists all existing spaces.
-        /// </summary>
-        /// <returns>all spaces</returns>
+        /// <inheritdoc cref="ISpaceRepository.All"/>
         public async Task<SpacesCollection> ListSpaces()
         {
             return await _spaceRepository.All();

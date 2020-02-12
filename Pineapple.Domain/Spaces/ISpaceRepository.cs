@@ -11,21 +11,21 @@ namespace Pineapple.Domain.Spaces
         /// <summary>
         /// Gets a space.
         /// </summary>
-        /// <param name="name">name of the space</param>
-        /// <returns>the space</returns>
+        /// <param name="name">Name of the space to fetch.</param>
+        /// <returns>The instance of the fetched space.</returns>
         Task<ISpace> Get(SpaceName name);
 
         /// <summary>
         /// Gets the names of all spaces.
         /// </summary>
-        /// <returns>space names</returns>
+        /// <returns>A collection of all space names.</returns>
         Task<SpacesCollection> All();
 
         /// <summary>
         /// Creates a new empty space.
         /// </summary>
-        /// <param name="space">space to create</param>
-        /// <returns>task</returns>
+        /// <param name="space">The space to add to the repository.</param>
+        /// <returns>Task.</returns>
         Task Add(ISpace space);
     }
 }

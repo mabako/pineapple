@@ -14,16 +14,17 @@ namespace Pineapple.Application.UseCases
         private readonly SpaceService _spaceService;
 
         /// <summary>
-        /// Initializes a new <see cref="CreateSpace"/>.
+        /// Initializes a new instance of the <see cref="CreateSpace"/> class.
         /// </summary>
-        /// <param name="outputPort"></param>
-        /// <param name="spaceService"></param>
+        /// <param name="outputPort">The output port to send all messages to.</param>
+        /// <param name="spaceService">The service to manage spaces.</param>
         public CreateSpace(IOutputPort outputPort, SpaceService spaceService)
         {
             _outputPort = outputPort;
             _spaceService = spaceService;
         }
 
+        /// <inheritdoc/>
         public async Task Execute(CreateSpaceInput input)
         {
             try

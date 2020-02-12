@@ -17,14 +17,22 @@ namespace Pineapple.Client.ConsoleApp
     {
         private readonly RootCommand _rootCommand;
 
-        public CommandMapper(CreateSpaceCommand createSpaceCommand, ListSpacesCommand listSpacesCommand,
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CommandMapper"/> class.
+        /// </summary>
+        /// <param name="createSpaceCommand">The command to create a space.</param>
+        /// <param name="listSpacesCommand">The command to list all spaces.</param>
+        /// <param name="createPageCommand">The command to create a page.</param>
+        public CommandMapper(
+            CreateSpaceCommand createSpaceCommand,
+            ListSpacesCommand listSpacesCommand,
             CreatePageCommand createPageCommand)
         {
             #region Spaces Commands
 
             Command createSpace = new Command("create-space")
             {
-                new Argument<SpaceName>("name")
+                new Argument<SpaceName>("name"),
             };
             createSpace.Description = "Creates a new space.";
             createSpace.Handler = CommandHandler.Create<SpaceName>(createSpaceCommand.CreateSpace);
@@ -41,15 +49,15 @@ namespace Pineapple.Client.ConsoleApp
             {
                 new Argument<SpaceName>("space")
                 {
-                    Description = "parent space for the new page"
+                    Description = "parent space for the new page",
                 },
                 new Argument<PageName>("page")
                 {
-                    Description = "page name"
+                    Description = "page name",
                 },
                 new Argument<FileInfo>("file")
                 {
-                    Description = "file to read the content from"
+                    Description = "file to read the content from",
                 },
             };
             createPage.Description = "Creates a new page within a space.";
@@ -68,6 +76,11 @@ namespace Pineapple.Client.ConsoleApp
             };
         }
 
+        /// <summary>
+        /// Tries to invoke a command, and displays an error message if unable to.
+        /// </summary>
+        /// <param name="args">The arguments to pass to the command.</param>
+        /// <returns>Task.</returns>
         public Task InvokeAsync(string[] args) => _rootCommand.InvokeAsync(args);
     }
 }
