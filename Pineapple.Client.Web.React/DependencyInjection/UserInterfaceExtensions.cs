@@ -6,15 +6,20 @@ using Boundaries = Pineapple.Application.Boundaries;
 
 namespace Pineapple.Client.Web.React.DependencyInjection
 {
+    /// <summary>
+    /// Sets up the web-based user interface.
+    /// </summary>
     public static class UserInterfaceExtensions
     {
-        public static IServiceCollection AddPresenters(this IServiceCollection services)
+        /// <summary>
+        /// Adds all presenters for the web-based output.
+        /// </summary>
+        /// <param name="services">The service collection to add the presenters to.</param>
+        public static void AddPresenters(this IServiceCollection services)
         {
             services.AddUseCase<Boundaries.CreateSpace.IOutputPort, CreateSpacePresenter>();
             services.AddUseCase<Boundaries.ListSpaces.IOutputPort, ListSpacesPresenter>();
             services.AddUseCase<Boundaries.CreatePage.IOutputPort, CreatePagePresenter>();
-
-            return services;
         }
 
         private static void AddUseCase<TOutputPort, TPresenter>(this IServiceCollection services)

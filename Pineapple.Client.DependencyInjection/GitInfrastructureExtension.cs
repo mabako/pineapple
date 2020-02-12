@@ -6,8 +6,15 @@ using Pineapple.Infrastructure.DataAccess.Git.Repositories;
 
 namespace Pineapple.Client.DependencyInjection
 {
+    /// <summary>
+    /// Sets up the git-backed infrastructure.
+    /// </summary>
     public static class GitInfrastructureExtension
     {
+        /// <summary>
+        /// Adds git-based persistence implementations.
+        /// </summary>
+        /// <param name="services">The service collection to add the git-based persistence to.</param>
         public static void AddGitPersistence(this IServiceCollection services)
         {
             services.AddScoped<ISpaceFactory, GitEntityFactory>();

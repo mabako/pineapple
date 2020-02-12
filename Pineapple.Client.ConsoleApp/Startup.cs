@@ -11,10 +11,11 @@ namespace Pineapple.Client.ConsoleApp
     public sealed class Startup : CommonStartup
     {
         /// <summary>
-        /// Creates a new instance of <see cref="Startup"/>.
+        /// Initializes a new instance of the <see cref="Startup"/> class.
         /// </summary>
-        /// <param name="configuration">the configuration</param>
-        public Startup(IConfiguration configuration) : base(configuration)
+        /// <param name="configuration">The configuration to set up the environment with.</param>
+        public Startup(IConfiguration configuration)
+            : base(configuration)
         {
         }
 
