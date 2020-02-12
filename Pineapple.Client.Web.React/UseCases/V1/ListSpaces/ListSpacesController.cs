@@ -7,6 +7,9 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Pineapple.Client.Web.React.UseCases.V1.ListSpaces
 {
+    /// <summary>
+    /// Controller to list spaces.
+    /// </summary>
     [Route("$/api/v1/spaces")]
     [Produces("application/json")]
     [ApiController]
@@ -16,10 +19,10 @@ namespace Pineapple.Client.Web.React.UseCases.V1.ListSpaces
         private readonly ListSpacesPresenter _presenter;
 
         /// <summary>
-        /// Creates a new <see cref="ListSpacesController"/>.
+        /// Initializes a new instance of the <see cref="ListSpacesController"/> class.
         /// </summary>
-        /// <param name="mediator">mediator</param>
-        /// <param name="presenter">presenter</param>
+        /// <param name="mediator">The mediator instance to publish messages with.</param>
+        /// <param name="presenter">Presenter for the use case.</param>
         public ListSpacesController(IMediator mediator, ListSpacesPresenter presenter)
         {
             _mediator = mediator;
@@ -29,7 +32,7 @@ namespace Pineapple.Client.Web.React.UseCases.V1.ListSpaces
         /// <summary>
         /// Lists all spaces.
         /// </summary>
-        /// <returns>existing space names</returns>
+        /// <returns>A list of all existing space names.</returns>
         [SwaggerOperation(Tags = new[] { "Spaces" })]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ListSpacesResponse))]

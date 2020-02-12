@@ -10,7 +10,6 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Pineapple.Client.Web.React.UseCases.V1.CreatePage
 {
-
     /// <summary>
     /// Controller to create new pages.
     /// </summary>
@@ -22,6 +21,11 @@ namespace Pineapple.Client.Web.React.UseCases.V1.CreatePage
         private readonly IMediator _mediator;
         private readonly CreatePagePresenter _presenter;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreatePageController"/> class.
+        /// </summary>
+        /// <param name="mediator">The mediator instance to publish messages with.</param>
+        /// <param name="presenter">Presenter for the use case.</param>
         public CreatePageController(IMediator mediator, CreatePagePresenter presenter)
         {
             _mediator = mediator;
@@ -33,9 +37,9 @@ namespace Pineapple.Client.Web.React.UseCases.V1.CreatePage
         /// </summary>
         /// <param name="spaceName">Name of the parent space to create this page in.</param>
         /// <param name="pageName">Name of the page to create.</param>
-        /// <param name="request">request</param>
-        /// <returns>details of the new page</returns>
-        [SwaggerOperation(Tags = new []{ "Pages"})]
+        /// <param name="request">Parameters mapped from the request body.</param>
+        /// <returns>Details of the newly created page.</returns>
+        [SwaggerOperation(Tags = new[] { "Pages" })]
         [HttpPut("{SpaceName}/{PageName}")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreatePageResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
