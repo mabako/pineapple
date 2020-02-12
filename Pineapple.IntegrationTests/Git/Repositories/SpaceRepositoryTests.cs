@@ -35,11 +35,12 @@ namespace Pineapple.IntegrationTests.Git.Repositories
         public async Task Single_Space_Can_Be_Fetched()
         {
             await _repository.Add(new Space(new SpaceName("single")));
-            Space space = (Space) await _repository.Get(new SpaceName("single"));
+            Space space = (Space)await _repository.Get(new SpaceName("single"));
 
             Assert.NotNull(space);
             Assert.Equal("single", space.Name.ToString());
-            Assert.Equal(new DirectoryInfo(Path.Combine(_rootPath, "single")).FullName,
+            Assert.Equal(
+                new DirectoryInfo(Path.Combine(_rootPath, "single")).FullName,
                 space.BaseDirectory?.FullName);
         }
 
@@ -70,7 +71,7 @@ namespace Pineapple.IntegrationTests.Git.Repositories
 
             Repository.Init(Path.Combine(_rootPath, "A"));
 
-            var space = (Space) await _repository.Get(new SpaceName("a"));
+            var space = (Space)await _repository.Get(new SpaceName("a"));
             Assert.NotNull(space);
             Assert.Equal("A", space.Name.ToString());
             Assert.Equal(Path.Combine(_rootPath, "A"), space.BaseDirectory?.FullName);

@@ -29,7 +29,7 @@ namespace Pineapple.IntegrationTests.Git.Repositories
 
             var options = Options.Create(new GitConfiguration()
             {
-                RootPath = path
+                RootPath = path,
             });
 
             var exception = Assert.Throws<GitRootPathDoesNotExistException>(() => new SpaceRepository(options));

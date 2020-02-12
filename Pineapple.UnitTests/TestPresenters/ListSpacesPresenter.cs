@@ -3,7 +3,7 @@ using Pineapple.Application.Boundaries.ListSpaces;
 
 namespace Pineapple.UnitTests.TestPresenters
 {
-    public class ListSpacesPresenter : IOutputPort
+    public sealed class ListSpacesPresenter : IOutputPort
     {
         public List<ListSpacesOutput> ListedSpaces { get; } = new List<ListSpacesOutput>();
 

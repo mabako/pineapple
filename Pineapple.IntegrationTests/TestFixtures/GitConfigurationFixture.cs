@@ -12,13 +12,13 @@ namespace Pineapple.IntegrationTests.TestFixtures
         private readonly TestDirectory _testDirectory = new TestDirectory();
 
         /// <summary>
-        /// Creates a new <see cref="GitConfigurationFixture"/>.
+        /// Initializes a new instance of the <see cref="GitConfigurationFixture"/> class.
         /// </summary>
         public GitConfigurationFixture()
         {
             Configuration = Options.Create(new GitConfiguration
             {
-                RootPath = _testDirectory.FullPath
+                RootPath = _testDirectory.FullPath,
             });
         }
 

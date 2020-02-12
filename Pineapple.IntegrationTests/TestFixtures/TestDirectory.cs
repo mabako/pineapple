@@ -21,11 +21,13 @@ namespace Pineapple.IntegrationTests.TestFixtures
         static TestDirectory()
         {
             if (Directory.Exists(RootPath))
+            {
                 DeleteTestRoot();
+            }
         }
 
         /// <summary>
-        /// Creates a new <see cref="TestDirectory"/> with a random path.
+        /// Initializes a new instance of the <see cref="TestDirectory"/> class with a random path.
         /// </summary>
         public TestDirectory()
         {
@@ -39,7 +41,7 @@ namespace Pineapple.IntegrationTests.TestFixtures
         }
 
         /// <summary>
-        /// Full path to the test directory.
+        /// Gets the full path to the test directory.
         /// </summary>
         public string FullPath { get; }
 
