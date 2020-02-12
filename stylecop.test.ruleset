@@ -1,0 +1,17 @@
+<RuleSet Name="Test Ruleset" ToolsVersion="15.0">
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <!-- Certain rules aren't very helpful for test code, such as requiring documentation on all classes. -->
+        <Rule Id="SA1600" Action="None" />
+
+        <!-- Do not require `this.` (personal preference) -->
+        <Rule Id="SA1101" Action="None" />
+        <Rule Id="SX1101" Action="Warning" />
+
+        <!-- We explicitly want field names to start with an underscore. (personal preference) -->
+        <Rule Id="SA1309" Action="None" />
+        <Rule Id="SX1309" Action="Warning" />
+
+        <!-- Do not add headers to each file. -->
+        <Rule Id="SA1633" Action="None" />
+    </Rules>
+</RuleSet>
