@@ -9,10 +9,10 @@ namespace Pineapple.Domain.Spaces.Exceptions
     public sealed class UnableToCreateSpaceException : DomainException
     {
         /// <summary>
-        /// Creates a new <see cref="UnableToCreateSpaceException"/>.
+        /// Initializes a new instance of the <see cref="UnableToCreateSpaceException"/> class.
         /// </summary>
-        /// <param name="message">message</param>
-        /// <param name="innerException">inner exception</param>
+        /// <param name="message">A message explaining the reason for this exception.</param>
+        /// <param name="innerException">The exception causing this message to be thrown.</param>
         public UnableToCreateSpaceException(string message, Exception innerException)
             : base(message, innerException)
         {

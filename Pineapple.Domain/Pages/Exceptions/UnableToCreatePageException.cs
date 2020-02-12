@@ -8,10 +8,10 @@ namespace Pineapple.Domain.Pages.Exceptions
     public sealed class UnableToCreatePageException : DomainException
     {
         /// <summary>
-        /// Creates a new <see cref="UnableToCreatePageException"/>.
+        /// Initializes a new instance of the <see cref="UnableToCreatePageException"/> class.
         /// </summary>
-        /// <param name="message">message</param>
-        /// <param name="innerException">reason as to why this page could not be created</param>
+        /// <param name="message">A message explaining the reason for this exception.</param>
+        /// <param name="innerException">The exception causing this message to be thrown.</param>
         public UnableToCreatePageException(string message, Exception innerException)
             : base(message, innerException)
         {

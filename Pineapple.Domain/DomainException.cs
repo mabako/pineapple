@@ -3,29 +3,18 @@
 namespace Pineapple.Domain
 {
     /// <summary>
-    /// Base class of all domain exceptions.
+    /// Represents all error types that exist only due to the particular domain.
     /// </summary>
     public class DomainException : Exception
     {
         /// <summary>
-        /// Initializes a new domain exception.
+        /// Initializes a new instance of the <see cref="DomainException"/> class.
         /// </summary>
-        /// <param name="message">message</param>
-        public DomainException(string message)
-            : base(message)
-        {
-
-        }
-
-        /// <summary>
-        /// Initializes a new domain exception.
-        /// </summary>
-        /// <param name="message">message</param>
-        /// <param name="innerException">inner exception</param>
-        public DomainException(string message, Exception innerException)
+        /// <param name="message">A message explaining the reason for this exception.</param>
+        /// <param name="innerException">The exception causing this message to be thrown, if available.</param>
+        protected DomainException(string message, Exception? innerException = null)
             : base(message, innerException)
         {
-
         }
     }
 }

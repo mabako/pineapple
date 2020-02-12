@@ -14,38 +14,58 @@ namespace Pineapple.Domain.Spaces.ValueObjects
         private readonly string _name;
 
         /// <summary>
-        /// Initializes a new <see cref="SpaceName"/>.
+        /// Initializes a new instance of the <see cref="SpaceName"/> class.
         /// </summary>
-        /// <param name="name">name</param>
+        /// <param name="name">A valid name for a space.</param>
+        /// <exception cref="InvalidSpaceNameException">Thrown when no name is provided, or the provided name is invalid.</exception>
         public SpaceName(string name)
         {
             if (string.IsNullOrEmpty(name))
+            {
                 throw new InvalidSpaceNameException("No name was provided for the space.");
+            }
 
             if (!ValidSpaceName.IsMatch(name))
+            {
                 throw new InvalidSpaceNameException($"The space name '{name}' is invalid.");
+            }
 
             _name = name;
         }
 
-        public override string ToString() => _name;
-
-        public bool Equals(SpaceName? other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return _name == other._name;
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return ReferenceEquals(this, obj) || obj is SpaceName other && Equals(other);
-        }
-
-        public override int GetHashCode() => _name.GetHashCode();
-
         public static bool operator ==(SpaceName? left, SpaceName? right) => Equals(left, right);
 
         public static bool operator !=(SpaceName? left, SpaceName? right) => !Equals(left, right);
+
+        /// <summary>
+        /// Returns the name of the space.
+        /// </summary>
+        /// <returns>The name represented by this instance.</returns>
+        public override string ToString() => _name;
+
+        /// <inheritdoc/>
+        public bool Equals(SpaceName? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            return _name == other._name;
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object? obj)
+        {
+            return ReferenceEquals(this, obj) || (obj is SpaceName other && Equals(other));
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode() => _name.GetHashCode();
     }
 }

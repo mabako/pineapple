@@ -6,7 +6,7 @@
     public sealed class GitConfiguration
     {
         /// <summary>
-        /// Root path to use for git directories.
+        /// Gets or sets root path to use for git directories.
         /// </summary>
         public string RootPath { get; set; } = string.Empty;
     }
