@@ -10,6 +10,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>
         <Nullable>enable</Nullable>
+        <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
     <ItemGroup>
@@ -28,6 +29,8 @@
         <Reference Include="Swashbuckle.AspNetCore.SwaggerUI">
             <HintPath>..\patched-libs\swashbuckle-5.0.0\Swashbuckle.AspNetCore.SwaggerUI.dll</HintPath>
         </Reference>
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.113" />
+        <AdditionalFiles Include="..\stylecop.json" />
     </ItemGroup>
 
     <ItemGroup>

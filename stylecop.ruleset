@@ -1,0 +1,12 @@
+<RuleSet Name="Stylecop" ToolsVersion="15.0">
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <!-- Do not require `this.` (personal preference) -->
+        <Rule Id="SA1101" Action="None" />
+
+        <!-- We explicitly want field names to start with an underscore. (personal preference) -->
+        <Rule Id="SA1309" Action="None" />
+
+        <!-- Do not add headers to each file. -->
+        <Rule Id="SA1633" Action="None" />
+    </Rules>
+</RuleSet>

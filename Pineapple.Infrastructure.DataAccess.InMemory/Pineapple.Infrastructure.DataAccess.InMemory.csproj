@@ -3,7 +3,13 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
+        <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.113" />
+      <AdditionalFiles Include="..\stylecop.json" />
+    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Pineapple.Application\Pineapple.Application.csproj" />
