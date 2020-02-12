@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using FluentMediator;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

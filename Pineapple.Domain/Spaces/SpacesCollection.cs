@@ -1,5 +1,4 @@
-﻿using System.Buffers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Pineapple.Domain.Spaces.ValueObjects;
@@ -9,7 +8,7 @@ namespace Pineapple.Domain.Spaces
     /// <summary>
     /// Spaces (first-class collection).
     /// </summary>
-    public class SpacesCollection
+    public sealed class SpacesCollection
     {
         private readonly ISet<SpaceName> _spaceNames = new HashSet<SpaceName>();
 

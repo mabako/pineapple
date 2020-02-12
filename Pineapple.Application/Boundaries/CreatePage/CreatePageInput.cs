@@ -1,5 +1,4 @@
-﻿using System;
-using Pineapple.Domain.Pages.ValueObjects;
+﻿using Pineapple.Domain.Pages.ValueObjects;
 using Pineapple.Domain.Spaces.ValueObjects;
 
 namespace Pineapple.Application.Boundaries.CreatePage

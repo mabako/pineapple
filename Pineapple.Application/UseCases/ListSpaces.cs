@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Pineapple.Application.Boundaries.ListSpaces;
 using Pineapple.Domain.Spaces;
 

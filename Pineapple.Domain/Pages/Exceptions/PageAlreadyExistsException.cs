@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Pineapple.Domain.Pages.Exceptions
+﻿namespace Pineapple.Domain.Pages.Exceptions
 {
     /// <summary>
     /// The page you tried to create already exists.
